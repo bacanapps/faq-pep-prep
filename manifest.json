@@ -1,0 +1,24 @@
+{
+  "lang": "pt-BR",
+  "name": "Tira-dúvidas sobre PrEP e PEP",
+  "short_name": "PrEP/PEP FAQ",
+  "description": "Ferramenta interativa de perguntas e respostas sobre PrEP e PEP.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#1F2937",
+  "background_color": "#111827",
+  "icons": [
+    {
+      "src": "./assets/img/hero.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/img/hero.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait-primary"
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Tira-dúvidas sobre PrEP e PEP",
+  "introHtml": "<p>A prevenção ao HIV é um compromisso compartilhado entre o poder público e a sociedade. Entre as estratégias que fortalecem essa resposta estão a profilaxia pré-exposição (PrEP) e a profilaxia pós-exposição (PEP) — tecnologias seguras, eficazes e ofertadas gratuitamente pelo SUS.</p><p>Essas ferramentas fazem parte da estratégia de Prevenção Combinada, que integra diferentes ações de cuidado, autonomia e autocuidado, promovendo uma resposta mais ampla, humana e informada pela ciência.</p><p>Neste espaço, convidamos você a conhecer mais sobre essas formas de prevenção, tirar dúvidas e entender como cada pessoa pode ser protagonista na construção de uma sociedade informada e sem estigmas ou preconceitos.</p><p>Pergunte, informe-se, compartilhe. Prevenir é também um ato de cidadania.</p>",
+  "disclaimerHtml": "<p>Este conteúdo é informativo e não substitui o atendimento médico. Para aconselhamento personalizado ou emergências, consulte um profissional de saúde ou o serviço oficial de saúde.</p>",
+  "audioDescription": {
+    "src": "/assets/audio/presentation.mp3",
+    "durationSec": 50
+  },
+  "heroImage": "/assets/img/hero.png",
+  "language": "pt-BR"
+}

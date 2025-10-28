@@ -1,0 +1,290 @@
+[
+  {
+    "id": "prep1",
+    "question": "O que é PrEP?",
+    "answerHtml": "<p>A profilaxia pré-exposição (PrEP) é uma forma eficaz de prevenir a infecção pelo HIV. Consiste no uso diário de um comprimido que contém dois medicamentos (tenofovir + entricitabina), que impedem que o vírus se estabeleça no organismo em caso de exposição.</p>",
+  "audioDescription": { "src": "/assets/audio/prep1.mp3", "durationSec": 20 },
+    "tags": ["PrEP", "definição"],
+    "sources": []
+  },
+  {
+    "id": "prep2",
+    "question": "Qual é a diferença entre PrEP e PEP?",
+    "answerHtml": "<p>A PrEP (profilaxia pré-exposição) é usada antes de uma possível exposição ao HIV, como forma contínua de prevenção, e a PEP (profilaxia pós-exposição) é usada depois de uma situação de risco como relação sexual sem o uso de preservativo, violência sexual ou acidente com material biológico, dentre outras. A PrEP é para uso regular, já a PEP é uma medida de urgência que deve ser iniciada preferencialmente nas primeiras 2 horas e no máximo até 72 horas após a exposição e mantida por 28 dias.</p>",
+  "audioDescription": { "src": "/assets/audio/prep2.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "PEP", "comparação"],
+    "sources": []
+  },
+  {
+    "id": "prep3",
+    "question": "Como a PrEP funciona?",
+    "answerHtml": "<p>Ao ser tomada todos os dias, a PrEP cria uma barreira de proteção no corpo. Se houver contato com o HIV, o medicamento bloqueia a infecção. A adesão diária é essencial para garantir a eficácia.</p>",
+  "audioDescription": { "src": "/assets/audio/prep3.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "funcionamento"],
+    "sources": []
+  },
+  {
+    "id": "prep4",
+    "question": "Por que tomar a PrEP?",
+    "answerHtml": "<p>Cerca de 40 mil pessoas se infectam pelo HIV por ano no Brasil. A PrEP é uma ferramenta segura e gratuita do SUS que amplia as opções de cuidado e prevenção, especialmente para quem está mais exposto à infecção.</p>",
+  "audioDescription": { "src": "/assets/audio/prep4.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "benefícios"],
+    "sources": []
+  },
+  {
+    "id": "prep5",
+    "question": "Quem pode usar a PrEP?",
+    "answerHtml": "<p>A PrEP pode ser utilizada por quaisquer pessoas sexualmente ativas. Algumas pessoas são priorizadas devido ao momento de vida ou por apresentarem situação de maior vulnerabilidade ao HIV, como: quem tem relações sexuais sem uso consistente de preservativo; quem usa repetidamente a profilaxia pós-exposição (PEP); quem tem histórico de infecções sexualmente transmissíveis (ISTs); pessoas em contextos de troca de sexo por dinheiro, abrigo, objetos ou drogas; pessoas que praticam chemsex, ou seja, sexo sob efeito de drogas psicoativas.</p>",
+  "audioDescription": { "src": "/assets/audio/prep5.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "público"],
+    "sources": []
+  },
+  {
+    "id": "prep6",
+    "question": "Como começar a usar a PrEP?",
+    "answerHtml": "<p>Procure um serviço de saúde habilitado. Após avaliação médica, testes e exames, a PrEP pode ser iniciada. O acompanhamento é a cada 4 meses ou semestral para pessoas que fazem uso regular. Ambas as formas exigem testagens rotineiras e renovação da medicação.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "início"],
+    "sources": []
+  },
+  {
+    "id": "prep7",
+    "question": "Posso deixar de usar camisinha se estiver tomando PrEP?",
+    "answerHtml": "<p>Não. A PrEP protege apenas contra o HIV. O uso combinado com preservativo oferece proteção também contra outras infecções sexualmente transmissíveis como sífilis, hepatites virais, gonorreia e clamídia, dentre outras.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "preservativo"],
+    "sources": []
+  },
+  {
+    "id": "prep8",
+    "question": "A PrEP é segura?",
+    "answerHtml": "<p>Sim. Estudos científicos confirmam que a PrEP é segura e altamente eficaz quando usada corretamente. Efeitos leves, como desconforto estomacal, podem ocorrer no início, mas tendem a desaparecer.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "segurança"],
+    "sources": []
+  },
+  {
+    "id": "prep9",
+    "question": "Quanto tempo leva para a PrEP fazer efeito?",
+    "answerHtml": "<p>A proteção é alcançada após 7 dias de uso contínuo para sexo anal e 20 dias para sexo vaginal.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "tempo"],
+    "sources": []
+  },
+  {
+    "id": "prep10",
+    "question": "Preciso tomar PrEP para sempre?",
+    "answerHtml": "<p>Não. O uso pode ser interrompido quando o risco de exposição diminuir. Mas lembre-se, busque sempre orientação de profissionais de saúde.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "duração"],
+    "sources": []
+  },
+  {
+    "id": "prep11",
+    "question": "Onde encontrar a PrEP?",
+    "answerHtml": "<p>A PrEP é gratuita e está disponível em unidades do SUS habilitadas em todo o país. O Ministério da Saúde disponibiliza ferramenta para localizar essas unidades mais rápido.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "acesso"],
+    "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep" } ]
+  },
+  {
+    "id": "prep12",
+    "question": "O que é a PrEP sob demanda?",
+    "answerHtml": "<p>A PrEP sob demanda é uma forma alternativa de uso da profilaxia pré-exposição ao HIV (PrEP) para pessoas que têm exposições eventuais ao vírus. Em vez de tomar o comprimido todos os dias, a pessoa usa o medicamento apenas em torno do momento da relação sexual.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep13",
+    "question": "Como funciona o esquema da PrEP sob demanda?",
+    "answerHtml": "<p>O esquema é conhecido como \"2+1+1\" e consiste na tomada de: 2 comprimidos de PrEP entre 2 e 24 horas antes da relação sexual; 1 comprimido 24 horas após a primeira dose; 1 comprimido 48 horas após a primeira dose. É importante seguir esse esquema exatamente como indicado para garantir proteção adequada.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep14",
+    "question": "Quem pode usar a PrEP sob demanda?",
+    "answerHtml": "<p>Quaisquer pessoas interessadas ou com orientação de profissional de saúde.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep15",
+    "question": "Quando devo considerar usar a PrEP sob demanda?",
+    "answerHtml": "<p>Essa modalidade é indicada para quem tem relações sexuais ocasionais e consegue planejar com antecedência quando haverá possível exposição ao HIV.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep16",
+    "question": "A PrEP sob demanda é tão eficaz quanto a diária?",
+    "answerHtml": "<p>Sim, estudos mostraram que a PrEP sob demanda é altamente eficaz quando tomada corretamente. O fator decisivo é seguir o esquema de doses com rigor.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep17",
+    "question": "A PrEP sob demanda protege contra outras infecções sexualmente transmissíveis (ISTs)?",
+    "answerHtml": "<p>Não. Assim como a PrEP diária, a sob demanda protege apenas contra o HIV. O uso de preservativo interno ou externo continua sendo fundamental.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep18",
+    "question": "Onde posso iniciar a PrEP sob demanda?",
+    "answerHtml": "<p>A decisão deve ser feita junto a um(a) profissional em unidade de saúde. A pessoa passa por consulta, testagem para o HIV e outras infecções sexualmente transmissíveis, e avaliação de saúde antes de iniciar o uso.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "sob demanda"],
+    "sources": []
+  },
+  {
+    "id": "prep19",
+    "question": "Adolescentes podem usar a PrEP?",
+    "answerHtml": "<p>Sim. A PrEP pode ser indicada para adolescentes a partir dos 15 anos de idade que pesem pelo menos 35 kg e tenham vida sexual ativa.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep20",
+    "question": "É necessário consentimento dos responsáveis?",
+    "answerHtml": "<p>O ideal é que o uso da PrEP seja acompanhado por um responsável legal, mas o consentimento não é obrigatório. Os profissionais dos serviços de saúde devem acolher cada situação de forma individualizada, respeitando os direitos, a confidencialidade e o sigilo dos adolescentes, conforme as normas do SUS.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep21",
+    "question": "A PrEP é segura para adolescentes?",
+    "answerHtml": "<p>Sim, desde que usada com acompanhamento clínico regular e adesão correta ao medicamento.</p>",
+  "audioDescription": { "src": "/assets/audio/faq1.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep22",
+    "question": "Como é o acompanhamento de adolescentes que usam PrEP?",
+    "answerHtml": "<p>Os acompanhamentos são feitos a cada quatro meses, com testagem para HIV e outras infecções sexualmente transmissíveis, avaliação da função renal e aconselhamento em saúde sexual e reprodutiva.</p>",
+    "audioDescription": { "src": "/assets/audio/prep22.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep23",
+    "question": "Por que a PrEP é importante para adolescentes?",
+    "answerHtml": "<p>A PrEP oferece uma nova possibilidade de prevenção combinada, fortalecendo a autonomia e o cuidado com a saúde sexual. É também uma oportunidade de diálogo sobre autocuidado, sexualidade e direitos.</p>",
+    "audioDescription": { "src": "/assets/audio/prep23.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep24",
+    "question": "Adolescentes que usam PrEP precisam continuar usando camisinha?",
+    "answerHtml": "<p>Sim. A PrEP protege apenas contra o HIV. O uso combinado com preservativo oferece proteção contra outras infecções sexualmente transmissíveis e gravidez indesejada.</p>",
+    "audioDescription": { "src": "/assets/audio/prep24.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": []
+  },
+  {
+    "id": "prep25",
+    "question": "Onde adolescentes podem ter acesso à PrEP?",
+    "answerHtml": "<p>A PrEP é gratuita e está disponível em serviços do SUS em todo o país. Jovens podem procurar unidades básicas de saúde, centros de testagem e aconselhamento (CTA) ou serviços especializados em ISTs/HIV/aids.</p>",
+    "audioDescription": { "src": "/assets/audio/prep25.mp3", "durationSec": 2 },
+    "tags": ["PrEP", "adolescentes"],
+    "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep" } ]
+  },
+  {
+    "id": "prep26",
+    "question": "Como saber se a PrEP é indicada para mim?",
+    "answerHtml": "<p>Procure um serviço de saúde e converse com um(a) profissional. O diálogo aberto e sem julgamentos é o primeiro passo para avaliar a melhor forma de prevenção para cada pessoa.</p>",
+    "audioDescription": { "src": "/assets/audio/prep26.mp3", "durationSec": 2 },
+    "tags": ["PrEP"],
+    "sources": []
+  },
+  {
+    "id": "pep1",
+    "question": "O que é a PEP?",
+    "answerHtml": "<p>A PEP (profilaxia pós-exposição) é uma medida de prevenção de urgência ao HIV, hepatites virais e outras infecções sexualmente transmissíveis. Consiste no uso de medicamentos antirretrovirais para reduzir o risco de infecção após uma situação de exposição ao vírus.</p>",
+    "audioDescription": { "src": "/assets/audio/prep27.mp3", "durationSec": 2 },
+    "tags": ["PEP", "definição"],
+    "sources": []
+  },
+  {
+    "id": "pep2",
+    "question": "Quando a PEP deve ser utilizada?",
+    "answerHtml": "<p>A PEP deve ser procurada imediatamente após qualquer situação de risco, como relação sexual desprotegida (sem camisinha, com rompimento ou escape); violência sexual; acidente ocupacional com instrumentos perfurocortantes ou contato direto com sangue e outros materiais biológicos.</p>",
+    "audioDescription": { "src": "/assets/audio/prep28.mp3", "durationSec": 2 },
+    "tags": ["PEP", "indicações"],
+    "sources": []
+  },
+  {
+    "id": "pep3",
+    "question": "Em quanto tempo devo iniciar a PEP?",
+    "answerHtml": "<p>O tratamento deve começar o mais rápido possível, preferencialmente nas duas primeiras horas após a exposição e, no máximo, em até 72 horas. Quanto antes for iniciada, maior a eficácia da proteção.</p>",
+    "audioDescription": { "src": "/assets/audio/prep29.mp3", "durationSec": 2 },
+    "tags": ["PEP", "tempo"],
+    "sources": []
+  },
+  {
+    "id": "pep4",
+    "question": "Como a PEP funciona?",
+    "answerHtml": "<p>Os medicamentos antirretrovirais atuam impedindo que o HIV se estabeleça e se multiplique no organismo, evitando que a infecção se consolide.</p>",
+    "audioDescription": { "src": "/assets/audio/prep30.mp3", "durationSec": 2 },
+    "tags": ["PEP", "funcionamento"],
+    "sources": []
+  },
+  {
+    "id": "pep5",
+    "question": "Por quanto tempo devo tomar a PEP?",
+    "answerHtml": "<p>A PEP deve ser tomada por 28 dias consecutivos, sem interrupções, sempre com acompanhamento e orientação de um(a) profissional de saúde.</p>",
+    "audioDescription": { "src": "/assets/audio/prep31.mp3", "durationSec": 2 },
+    "tags": ["PEP", "duração"],
+    "sources": []
+  },
+  {
+    "id": "pep6",
+    "question": "O que é a avaliação de risco?",
+    "answerHtml": "<p>É o momento em que o profissional de saúde conversa com a pessoa atendida para entender o tipo de exposição, as práticas sexuais e os fatores de vulnerabilidade, a fim de apresentar a prevenção combinada e ofertar as opções mais adequadas para cada pessoa.</p>",
+    "audioDescription": { "src": "/assets/audio/prep32.mp3", "durationSec": 2 },
+    "tags": ["PEP", "avaliação"],
+    "sources": []
+  },
+  {
+    "id": "pep7",
+    "question": "Preciso saber se meu parceiro tem HIV para usar a PEP?",
+    "answerHtml": "<p>Não. A PEP é indicada sempre que houver exposição de risco, independentemente de se saber o status sorológico da outra pessoa.</p>",
+    "audioDescription": { "src": "/assets/audio/prep33.mp3", "durationSec": 2 },
+    "tags": ["PEP", "indicações"],
+    "sources": []
+  },
+  {
+    "id": "pep8",
+    "question": "A PEP tem efeitos adversos?",
+    "answerHtml": "<p>Algumas pessoas podem apresentar efeitos leves e temporários, como náusea ou fadiga. Em geral, desaparecem rapidamente. Em caso de desconforto, procure o serviço de saúde que indicou a profilaxia antes de interromper o uso dos medicamentos.</p>",
+    "audioDescription": { "src": "/assets/audio/prep34.mp3", "durationSec": 2 },
+    "tags": ["PEP", "segurança"],
+    "sources": []
+  },
+  {
+    "id": "pep9",
+    "question": "Posso deixar de usar camisinha durante a PEP?",
+    "answerHtml": "<p>Não. O uso do preservativo continua sendo essencial durante e após o tratamento, pois a PEP não protege contra outras ISTs. Além disso, durante o uso da PEP é necessário evitar novas exposições.</p>",
+    "audioDescription": { "src": "/assets/audio/prep35.mp3", "durationSec": 2 },
+    "tags": ["PEP", "preservativo"],
+    "sources": []
+  },
+  {
+    "id": "pep10",
+    "question": "Onde posso encontrar a PEP?",
+    "answerHtml": "<p>A PEP está disponível gratuitamente no SUS. O atendimento é oferecido em serviços de urgência e emergência, centros de testagem e aconselhamento (CTA) e serviços especializados em ISTs/HIV. Procure o serviço de saúde mais próximo imediatamente após a exposição.</p>",
+    "audioDescription": { "src": "/assets/audio/prep36.mp3", "durationSec": 2 },
+    "tags": ["PEP", "acesso"],
+    "sources": [ { "label": "Painel Onde Encontrar PEP", "url": "https://antigo.aids.gov.br/pep_onde/index.html" } ]
+  }
+]
