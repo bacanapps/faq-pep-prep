@@ -1,30 +1,56 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="default">
   <head>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover"
     />
-    <title>PrEP & PEP — FAQ</title>
-
-    <!-- PWA basics -->
+    <meta name="theme-color" content="#000000" />
     <link rel="manifest" href="./manifest.json" />
-    <meta name="theme-color" content="#0a4bff" />
+    <link rel="icon" href="./icons/icon-192.png" />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="./assets/css/theme.css" />
+    <title>FAQ sobre PEP e PREP</title>
 
-    <!-- Vendor (UMD) via script tags (safe for GitHub Pages) -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
-    <script src="https://unpkg.com/howler/dist/howler.min.js" defer></script>
+    <!-- DESIGN TOKENS + THEMES (default / exposicao) -->
+    <link rel="stylesheet" href="./tokens.css" />
 
-    <!-- Your app -->
-    <script src="./app.js" defer></script>
+    <!-- COMPONENT + LAYOUT STYLES (hero, feature cards, buttons, etc.) -->
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- React 18 (CDN build, UMD globals) -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+
+    <!-- Howler for audio playback -->
+    <script
+      crossorigin
+      src="https://unpkg.com/howler@2.2.4/dist/howler.min.js"
+    ></script>
   </head>
-  <body>
-    <noscript>Ative o JavaScript para usar este aplicativo.</noscript>
+
+  <body class="bg-page text-primary">
+    <!-- React root -->
     <div id="root"></div>
+
+    <!-- App logic (router, theme switcher, pages) -->
+    <script src="./app.js"></script>
+
+    <!-- Service Worker registration -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(function (err) {
+            console.warn("SW registration failed", err);
+          });
+      }
+    </script>
   </body>
 </html>
