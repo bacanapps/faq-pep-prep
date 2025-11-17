@@ -293,7 +293,7 @@
           h(
             "div",
             { style: { minWidth: 0, flex: "1 1 auto" } },
-            h("h1", { className: "hero-title text-gradient" }, title),
+            h("h1", { className: "hero-title" }, title),
             subtitle
               ? h(
                   "p",
@@ -351,11 +351,12 @@
       h(
         "button",
         {
-          className: `btn ${color} theme-transition`,
           type: "button",
-          style: { width: "100%" },
+          onClick: onToggleTheme,
+          className: "theme-toggle-btn",
+          "aria-label": "Alternar tema visual"
         },
-        cta
+          "🎨"
       )
     );
   }
@@ -364,87 +365,99 @@
   function Home({ onNavigate, onToggleTheme, currentTheme }) {
     return h(
       "div",
-      { className: "fade-in theme-transition" },
+      { className: "page fade-in" },
 
-      // hero header (with theme toggle button in rightSlot)
-      h(HeaderHero, {
-        title: "FAQ SOBRE PEP e PrEP",
-        subtitle:
-          "Tire suas dúvidas sobre a PrEP e a PEP de forma interativa e acessível",
-        rightSlot: h(
-          "button",
-          {
-            type: "button",
-            onClick: onToggleTheme,
-            className:
-              "theme-transition card-flat pill-capsule body-copy",
-            style: {
-              fontSize: "0.7rem",
-              lineHeight: "1.2",
-              minWidth: "7rem",
-              textAlign: "center",
-              fontWeight: "500",
-              borderWidth: "1px",
-              borderStyle: "solid",
-              padding: "0.5rem 0.75rem",
-              cursor: "pointer",
-              backgroundColor: "transparent",
-            },
-            "aria-label":
-              "Alternar tema visual / contraste para modo de exposição",
-          },
-          currentTheme === "default" ? "Exposição" : "Padrão"
-        ),
-      }),
+      // Theme toggle button (fixed position)
+      h(
+        "button",
+        {
+          className: "theme-toggle-btn",
+          onClick: onToggleTheme,
+          "aria-label": "Alternar tema"
+        },
+        currentTheme === "light" ? "🌙" : "☀️"
+      ),
 
-      // feature cards row
+      // Hero section with gradient glass card
       h(
         "section",
-        { className: "feature-strip theme-transition" },
+        { className: "hero hero-gradient glass-card" },
         h(
           "div",
-          { className: "feature-grid" },
-          h(Card, {
-            icon: "📂",
-            title: "Apresentação",
-            desc:
-              "Conheça mais sobre a PrEP e PEP",
-            cta: "Explorar",
-            color: "btn-primary",
-            onClick: () => onNavigate(Routes.ABOUT),
-          }),
-          h(Card, {
-            icon: "❓",
-            title: "Perguntas Frequentes",
-            desc:
-              "Mais de 30 perguntas e respostas sobre a PrEP e PEP com busca inteligente",
-            cta: "Explorar",
-            color: "btn-green",
-            onClick: () => onNavigate(Routes.FAQ),
-          }),
-          h(Card, {
-            icon: "🤖",
-            title: "Pergunte ao Bot",
-            desc:
-              "Faça perguntas específicas e encontre respostas personalizadas sobre a PrEP e PEP",
-            cta: "Explorar",
-            color: "btn-purple",
-            onClick: () => onNavigate(Routes.BOT),
-          })
+          { className: "hero-header" },
+          h(
+            "div",
+            { className: "hero-content" },
+            h(
+              "h1",
+              { className: "hero-title" },
+              "PrEP & PEP FAQ"
+            ),
+            h(
+              "p",
+              { className: "hero-lede" },
+              "Entenda as estratégias de prevenção antes e depois da exposição"
+            )
+          )
         )
       ),
 
-      // footer
+      // Two-column cards section
       h(
-        "footer",
-        { className: "footer theme-transition text-secondary body-copy" },
-        "Informações baseadas em evidências científicas • Ministério da Saúde • OPAS"
+        "section",
+        { className: "home-cards" },
+        h(
+          "div",
+          { className: "cards-2col" },
+
+          // Card 1: Apresentação
+          h(
+            "article",
+            {
+              className: "choice-card glass-card card-hover",
+              onClick: () => onNavigate(Routes.ABOUT)
+            },
+            h("div", { className: "choice-icon" }, "🛡️"),
+            h("h2", { className: "choice-title" }, "Apresentação"),
+            h(
+              "p",
+              { className: "choice-desc" },
+              "Conheça mais sobre PrEP e PEP, suas diferenças e importância na prevenção ao HIV"
+            ),
+            h(
+              "div",
+              { className: "actions" },
+              h("button", { className: "btn btn-primary" }, "Explorar")
+            )
+          ),
+
+          // Card 2: PERGUNTAS E RESPOSTAS SOBRE PREP
+          h(
+            "article",
+            {
+              className: "choice-card glass-card card-hover",
+              onClick: () => onNavigate(Routes.FAQ)
+            },
+            h("div", { className: "choice-icon" }, "💊"),
+            h("h2", { className: "choice-title" }, "Perguntas Frequentes"),
+            h(
+              "p",
+              { className: "choice-desc" },
+              "Perguntas Frequentes sobre PrEP e PEP. Encontre respostas confiáveis e atualizadas."
+            ),
+            h(
+              "div",
+              { className: "actions" },
+              h("button", { className: "btn btn-green" }, "Explorar")
+            )
+          )
+        )
       )
     );
   }
 
   // ---- PAGE: FAQ ---------------------------------------------
-  function Faq({ onBack }) {
+  function Faq({ onBack, onToggleTheme, currentTheme }) {
     const [term, setTerm] = useState("");
     const { playingId, toggle: toggleAudio, teardown: teardownAudio } =
       useHowlerAudio();
@@ -602,12 +615,21 @@
           })
         ),
         h("div", { className: "faq-list" }, listContent)
+      ),
+      h(
+        "button",
+        {
+          className: "theme-toggle-btn",
+          onClick: onToggleTheme,
+          "aria-label": "Alternar tema"
+        },
+        currentTheme === "light" ? "🌙" : "☀️"
       )
     );
   }
 
   // ---- PAGE: BOT ---------------------------------------------
-  function Bot({ onBack }) {
+  function Bot({ onBack, onToggleTheme, currentTheme }) {
     const [term, setTerm] = useState("");
     const { playingId, toggle: toggleAudio, teardown: teardownAudio } =
       useHowlerAudio();
@@ -908,12 +930,21 @@
           )
         ),
         resultContent
+      ),
+      h(
+        "button",
+        {
+          className: "theme-toggle-btn",
+          onClick: onToggleTheme,
+          "aria-label": "Alternar tema"
+        },
+        currentTheme === "light" ? "🌙" : "☀️"
       )
     );
   }
 
   // ---- PAGE: PRESENTATION / APRESENTAÇÃO ---------------------
-  function Presentation({ onBack }) {
+  function Presentation({ onBack, onToggleTheme, currentTheme }) {
   const { playingId, toggle: toggleAudio, teardown: teardownAudio } =
     useHowlerAudio();
 
@@ -1012,7 +1043,8 @@
     toggleAudio(audioId, state.audioSrc);
   }, [toggleAudio, state.audioSrc]);
 
-  const handleBack = React.useCallback(() => {
+  const handleBack = React.useCallback((e) => {
+    e.preventDefault();
     teardownAudio();
     onBack();
   }, [teardownAudio, onBack]);
@@ -1028,331 +1060,155 @@
   }
 
   //
-  // Loading / Error states
+  // Loading state
   //
   if (state.loading) {
     return React.createElement(
       "div",
-      { className: "fade-in theme-transition" },
+      { className: "page fade-in" },
       React.createElement(
-        "section",
-        { className: "presentation-hero" },
+        "header",
+        { className: "page-header" },
         React.createElement(
-          "div",
-          { className: "presentation-hero-inner" },
-          React.createElement(
-            "div",
-            { className: "presentation-hero-copy" },
-            React.createElement(
-              "span",
-              { className: "presentation-badge" },
-              "Carregando…"
-            ),
-            React.createElement(
-              "h2",
-              { className: "presentation-title" },
-              "Carregando conteúdo"
-            ),
-            React.createElement(
-              "p",
-              { className: "presentation-lede" },
-              "Aguarde um momento."
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "presentation-hero-figure", "aria-hidden": "true" },
-            React.createElement("img", {
-              src: state.heroImage,
-              alt: ""
-            })
-          )
-        )
-      ),
-      React.createElement(
-        "section",
-        { className: "presentation-content" },
-        React.createElement(
-          "div",
-          { className: "presentation-actions" },
-          React.createElement(
-            "button",
-            {
-              type: "button",
-              className: "btn btn-green",
-              onClick: handleBack
-            },
-            "Voltar"
-          )
-        )
-      )
-    );
-  }
-
-  if (state.error) {
-    return React.createElement(
-      "div",
-      { className: "fade-in theme-transition" },
-      React.createElement(
-        "section",
-        { className: "presentation-hero" },
-        React.createElement(
-          "div",
-          { className: "presentation-hero-inner" },
-          React.createElement(
-            "div",
-            { className: "presentation-hero-copy" },
-            React.createElement(
-              "span",
-              { className: "presentation-badge" },
-              "Erro"
-            ),
-            React.createElement(
-              "h2",
-              { className: "presentation-title" },
-              "Não foi possível carregar"
-            ),
-            React.createElement(
-              "p",
-              { className: "presentation-lede" },
-              state.error
-            )
-          ),
-          React.createElement(
-            "div",
-            { className: "presentation-hero-figure", "aria-hidden": "true" },
-            React.createElement("img", {
-              src: state.heroImage,
-              alt: ""
-            })
-          )
-        )
-      ),
-      React.createElement(
-        "section",
-        { className: "presentation-content" },
-        React.createElement(
-          "div",
-          { className: "presentation-actions" },
-          React.createElement(
-            "button",
-            {
-              type: "button",
-              className: "btn btn-green",
-              onClick: handleBack
-            },
-            "Voltar"
-          )
-        )
-      )
-    );
-  }
-
-  //
-  // Main rendered page:
-  // - badge row can include eyebrow AND language chip
-  // - hero section shows heroImage
-  // - audio button shows play/pause + duration if available
-  // - paragraphs from HTML or array
-  // - disclaimerHtml at the end if present
-  //
-  return React.createElement(
-    "div",
-    { className: "fade-in theme-transition" },
-
-    //
-    // HERO SECTION
-    //
-    React.createElement(
-      "section",
-      { className: "presentation-hero" },
-      React.createElement(
-        "div",
-        { className: "presentation-hero-inner" },
-
-        // LEFT COPY BLOCK
-        React.createElement(
-          "div",
-          { className: "presentation-hero-copy" },
-
-          // top row: eyebrow badge + language chip (if exists)
-          React.createElement(
-            "div",
-            {
-              style: {
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "center",
-                gap: "0.5rem",
-                marginBottom: "0.75rem"
-              }
-            },
-            state.eyebrow
-              ? React.createElement(
-                  "span",
-                  { className: "presentation-badge" },
-                  state.eyebrow
-                )
-              : null,
-            state.language
-              ? React.createElement(
-                  "span",
-                  {
-                    className:
-                      "lang-chip pill-capsule theme-transition",
-                    style: {
-                      fontSize: "0.75rem",
-                      lineHeight: 1.2,
-                      border: "1px solid var(--color-border-card)",
-                      padding: "0.4rem 0.6rem",
-                      backgroundColor: "var(--color-surface-card)",
-                      color: "var(--color-text-primary)"
-                    }
-                  },
-                  state.language
-                )
-              : null
-          ),
-
-          // title
-          React.createElement(
-            "h2",
-            { className: "presentation-title" },
-            state.title
-          ),
-
-          // lede / subtitle (optional)
-          state.lede
-            ? React.createElement(
-                "p",
-                { className: "presentation-lede" },
-                state.lede
-              )
-            : null
-        ),
-
-        // HERO IMAGE
-        React.createElement(
-          "div",
+          "a",
           {
-            className: "presentation-hero-figure",
-            "aria-hidden": "true"
+            href: "#",
+            className: "back-link",
+            onClick: handleBack
           },
-          React.createElement("img", {
-            src: state.heroImage,
-            alt: ""
-          })
-        )
-      )
-    ),
-
-    //
-    // CONTENT SECTION
-    //
-    React.createElement(
-      "section",
-      { className: "presentation-content" },
-
-      // AUDIO BLOCK
-      state.audioSrc
-        ? React.createElement(
-            "div",
-            { className: "presentation-audio" },
-            React.createElement(
-              "button",
-              {
-                type: "button",
-                className:
-                  "presentation-audio-btn" +
-                  (isPlaying ? " is-playing" : ""),
-                onClick: handleAudio,
-                "aria-pressed": isPlaying ? "true" : "false",
-                "aria-label": isPlaying
-                  ? "Pausar audiodescrição da apresentação"
-                  : "Ouvir audiodescrição da apresentação"
-              },
-              React.createElement(
-                "span",
-                {
-                  className: "presentation-audio-icon",
-                  "aria-hidden": "true"
-                },
-                isPlaying ? "⏸️" : "🎧"
-              ),
-              React.createElement(
-                "span",
-                { className: "presentation-audio-label" },
-                isPlaying ? "Pausar audiodescrição" : "Ouvir audiodescrição"
-              ),
-              state.audioDurationSec
-                ? React.createElement(
-                    "span",
-                    {
-                      className: "presentation-audio-duration",
-                      style: {
-                        marginLeft: "0.5rem",
-                        fontSize: "0.8rem",
-                        opacity: 0.8
-                      }
-                    },
-                    renderDurationLabel(state.audioDurationSec)
-                  )
-                : null
-            )
-          )
-        : null,
-
-      // BODY TEXT
-      React.createElement(
-        "div",
-        { className: "presentation-text muted" },
-
-        // if we have HTML paragraphs from CMS / PEP-Prep version
-        state.paragraphsHtml
-          ? React.createElement("div", {
-              className: "presentation-body-html",
-              dangerouslySetInnerHTML: { __html: state.paragraphsHtml }
-            })
-          : null,
-
-        // if we have array paragraphs (legacy HIV FAQ version)
-        !state.paragraphsHtml && state.paragraphsArray.length
-          ? state.paragraphsArray.map((p, idx) =>
-              React.createElement("p", { key: idx }, p)
-            )
-          : null,
-
-        // disclaimerHtml (optional)
-        state.disclaimerHtml
-          ? React.createElement("div", {
-              className: "presentation-disclaimer",
-              style: {
-                marginTop: "2rem",
-                fontSize: "0.9rem",
-                lineHeight: 1.4,
-                opacity: 0.9
-              },
-              dangerouslySetInnerHTML: {
-                __html: state.disclaimerHtml
-              }
-            })
-          : null
-      ),
-
-      // VOLTAR
-      React.createElement(
-        "div",
-        { className: "presentation-actions" },
+          "← Voltar"
+        ),
+        React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
         React.createElement(
           "button",
           {
-            type: "button",
-            className: "btn btn-green",
+            className: "theme-toggle-btn",
+            onClick: onToggleTheme,
+            "aria-label": "Alternar tema"
+          },
+          currentTheme === "light" ? "🌙" : "☀️"
+        )
+      ),
+      React.createElement(
+        "div",
+        { className: "presentation-card" },
+        React.createElement("p", null, "Carregando...")
+      )
+    );
+  }
+
+  //
+  // Error state
+  //
+  if (state.error) {
+    return React.createElement(
+      "div",
+      { className: "page fade-in" },
+      React.createElement(
+        "header",
+        { className: "page-header" },
+        React.createElement(
+          "a",
+          {
+            href: "#",
+            className: "back-link",
             onClick: handleBack
           },
-          "Voltar"
+          "← Voltar"
+        ),
+        React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
+        React.createElement(
+          "button",
+          {
+            className: "theme-toggle-btn",
+            onClick: onToggleTheme,
+            "aria-label": "Alternar tema"
+          },
+          currentTheme === "light" ? "🌙" : "☀️"
         )
+      ),
+      React.createElement(
+        "div",
+        { className: "presentation-card" },
+        React.createElement("p", null, state.error)
       )
+    );
+  }
+
+  //
+  // Build the presentation text block
+  //
+  let presentationHtml = "";
+  if (state.paragraphsHtml) {
+    presentationHtml = state.paragraphsHtml;
+  } else if (state.paragraphsArray.length) {
+    presentationHtml = state.paragraphsArray.map(p => `<p>${p}</p>`).join("");
+  }
+
+  if (state.disclaimerHtml) {
+    presentationHtml += state.disclaimerHtml;
+  }
+
+  //
+  // Main rendered page - card-based layout
+  //
+  return React.createElement(
+    "div",
+    { className: "page fade-in" },
+    // Header
+    React.createElement(
+      "header",
+      { className: "page-header" },
+      React.createElement(
+        "a",
+        {
+          href: "#",
+          className: "back-link",
+          onClick: handleBack
+        },
+        "← Voltar"
+      ),
+      React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
+      React.createElement(
+        "button",
+        {
+          className: "theme-toggle-btn",
+          onClick: onToggleTheme,
+          "aria-label": "Alternar tema"
+        },
+        currentTheme === "light" ? "🌙" : "☀️"
+      )
+    ),
+
+    // Presentation card
+    React.createElement(
+      "div",
+      { className: "presentation-card" },
+      React.createElement(
+        "div",
+        { className: "presentation-heroimg-wrapper" },
+        React.createElement("img", {
+          src: state.heroImage,
+          alt: "FAQ sobre PEP e PrEP"
+        })
+      ),
+      React.createElement("div", {
+        className: "presentation-textblock",
+        dangerouslySetInnerHTML: { __html: presentationHtml }
+      }),
+      state.audioSrc &&
+        React.createElement(
+          "div",
+          { className: "audio-row" },
+          React.createElement(
+            "button",
+            {
+              className: "audio-btn",
+              onClick: handleAudio
+            },
+            `🎵 ${isPlaying ? "Pausar" : "Audiodescrição"}`
+          )
+        )
     )
   );
 }
@@ -1362,10 +1218,17 @@
   function App() {
     const [route, navigate] = useRoute();
 
-    // theme state: "default" or "exhibit"
+    // theme state: "light" or "dark"
     const [theme, setTheme] = useState(() => {
+      // Check URL parameter first
       const params = new URLSearchParams(window.location.search);
-      return params.get("theme") === "exhibit" ? "exhibit" : "default";
+      const themeParam = params.get("theme");
+      if (themeParam === "light" || themeParam === "dark") {
+        return themeParam;
+      }
+      // Then check localStorage
+      const saved = localStorage.getItem('faq-pep-prep-theme');
+      return saved === "dark" ? "dark" : "light"; // Default to light
     });
 
     // apply theme to <html data-theme="...">
@@ -1374,17 +1237,37 @@
     }, [theme]);
 
     function toggleTheme() {
-      setTheme((t) => (t === "default" ? "exhibit" : "default"));
+      setTheme((t) => {
+        const next = t === "light" ? "dark" : "light";
+        localStorage.setItem('faq-pep-prep-theme', next);
+        // Update URL parameter
+        const url = new URL(window.location);
+        url.searchParams.set('theme', next);
+        window.history.pushState({}, '', url);
+        return next;
+      });
     }
 
     // render route
     let screen;
     if (route === Routes.FAQ) {
-      screen = h(Faq, { onBack: () => navigate(Routes.HOME) });
+      screen = h(Faq, {
+        onBack: () => navigate(Routes.HOME),
+        onToggleTheme: toggleTheme,
+        currentTheme: theme
+      });
     } else if (route === Routes.BOT) {
-      screen = h(Bot, { onBack: () => navigate(Routes.HOME) });
+      screen = h(Bot, {
+        onBack: () => navigate(Routes.HOME),
+        onToggleTheme: toggleTheme,
+        currentTheme: theme
+      });
     } else if (route === Routes.ABOUT) {
-      screen = h(Presentation, { onBack: () => navigate(Routes.HOME) });
+      screen = h(Presentation, {
+        onBack: () => navigate(Routes.HOME),
+        onToggleTheme: toggleTheme,
+        currentTheme: theme
+      });
     } else {
       screen = h(Home, {
         onNavigate: (nextRoute) => navigate(nextRoute),

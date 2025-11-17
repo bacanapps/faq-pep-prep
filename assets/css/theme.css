@@ -47,6 +47,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+span.lang-chip.pill-capsule.theme-transition {
+    display: none;
+}
+
 html, body {
   margin: 0;
   padding: 0;
