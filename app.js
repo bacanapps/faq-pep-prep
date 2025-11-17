@@ -549,6 +549,11 @@
                     onClick: (event) => {
                       event.preventDefault();
                       event.stopPropagation();
+                      // Open the details element to reveal the answer
+                      const detailsElement = event.currentTarget.closest('details');
+                      if (detailsElement && !isPlaying) {
+                        detailsElement.open = true;
+                      }
                       handleAudioToggle(faq);
                     },
                     "aria-pressed": isPlaying ? "true" : "false",
