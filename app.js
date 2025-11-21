@@ -942,7 +942,7 @@
             audioObj.duration ??
             null,
 
-          heroImage: json.heroImage || "./assets/img/hero.png"
+          heroImage: toRelative(json.heroImage || "./assets/img/hero.png")
         });
       })
       .catch((err) => {
