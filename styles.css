@@ -941,6 +941,16 @@ a.back-link {
     color: white;
 }
 
+.btn-primary:hover {
+    background: linear-gradient(to right, rgb(37, 99, 235), rgb(79, 70, 229));
+    transform: translateY(-1px);
+}
+
+.btn-green:hover {
+    background: linear-gradient(to right, rgb(5, 150, 105), rgb(13, 148, 136));
+    transform: translateY(-1px);
+}
+
 .actions {
   display: flex;
   gap: 10px;
