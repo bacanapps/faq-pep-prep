@@ -272,66 +272,22 @@
   // ---- HEADER HERO -------------------------------------------
   const HeaderHero = ({ title, subtitle, rightSlot }) =>
     h(
-      "header",
-      { className: "hero-blue theme-transition" },
+      "section",
+      { className: "hero hero-gradient glass-card" },
       h(
         "div",
-        { className: "hero-container" },
+        { className: "hero-header" },
         h(
           "div",
-          {
-            style: {
-              display: "flex",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "1rem",
-              alignItems: "flex-start",
-              width: "100%",
-            },
-          },
-          // left block
-          h(
-            "div",
-            { style: { minWidth: 0, flex: "1 1 auto" } },
-            h("h1", { className: "hero-title" }, title),
-            subtitle
-              ? h(
-                  "p",
-                  { className: "hero-subtitle muted" },
-                  subtitle
-                )
-              : null,
-            h(
-              "div",
-              { className: "badges muted" },
-              h(
-                "span",
-                { className: "badge" },
-                h("span", {
-                  className: "badge-dot dot-green",
-                  "aria-hidden": "true",
-                })
-              ),
-              h(
-                "span",
-                { className: "badge" },
-                h("span", {
-                  className: "badge-dot dot-blue",
-                  "aria-hidden": "true",
-                })
-              ),
-              h(
-                "span",
-                { className: "badge" },
-                h("span", {
-                  className: "badge-dot dot-purple",
-                  "aria-hidden": "true",
-                })
+          { className: "hero-content" },
+          h("h1", { className: "hero-title" }, title),
+          subtitle
+            ? h(
+                "p",
+                { className: "hero-lede" },
+                subtitle
               )
-            )
-          ),
-          // right block (theme button from parent)
-          rightSlot || null
+            : null
         )
       )
     );
@@ -417,7 +373,7 @@
               className: "choice-card glass-card card-hover",
               onClick: () => onNavigate(Routes.ABOUT)
             },
-            h("div", { className: "choice-icon" }, "🛡️"),
+            h("div", { className: "choice-icon" }, "📘"),
             h("h2", { className: "choice-title" }, "Apresentação"),
             h(
               "p",
@@ -438,7 +394,7 @@
               className: "choice-card glass-card card-hover",
               onClick: () => onNavigate(Routes.FAQ)
             },
-            h("div", { className: "choice-icon" }, "💊"),
+            h("div", { className: "choice-icon" }, "❓"),
             h("h2", { className: "choice-title" }, "Perguntas Frequentes"),
             h(
               "p",
@@ -544,8 +500,7 @@
                   "button",
                   {
                     type: "button",
-                    className:
-                      "faq-audio-btn" + (isPlaying ? " is-playing" : ""),
+                    className: "audio-btn",
                     onClick: (event) => {
                       event.preventDefault();
                       event.stopPropagation();
@@ -559,26 +514,7 @@
                     "aria-pressed": isPlaying ? "true" : "false",
                     "aria-label": audioLabel,
                   },
-                  h(
-                    "span",
-                    {
-                      className: "faq-audio-icon",
-                      "aria-hidden": "true",
-                    },
-                    "🔊"
-                  ),
-                  h(
-                    "span",
-                    { className: "faq-audio-label" },
-                    isPlaying ? "Pausar" : "Audiodescrição"
-                  ),
-                  faq.audioDurationLabel
-                    ? h(
-                        "span",
-                        { className: "faq-audio-duration" },
-                        faq.audioDurationLabel
-                      )
-                    : null
+                  isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
                 )
               : null
           ),
@@ -595,16 +531,7 @@
       { className: "fade-in theme-transition" },
       h(HeaderHero, {
         title: "Perguntas Frequentes",
-        subtitle: "",
-        rightSlot: h(
-          "button",
-          {
-            type: "button",
-            className: "btn btn-green",
-            onClick: handleBack,
-          },
-          "Voltar"
-        ),
+        subtitle: "PrEP & PEP FAQ"
       }),
       h(
         "section",
@@ -612,12 +539,30 @@
         h(
           "div",
           { className: "faq-controls" },
-          h("input", {
-            className: "faq-search",
-            placeholder: "Buscar por palavra-chave…",
-            value: term,
-            onChange: (e) => setTerm(e.target.value),
-          })
+          h(
+            "button",
+            {
+              type: "button",
+              className: "btn btn-green",
+              onClick: handleBack,
+            },
+            "Voltar"
+          ),
+          h(
+            "div",
+            { className: "search-input-wrapper" },
+            h("input", {
+              className: "faq-search",
+              placeholder: "Buscar por palavra-chave…",
+              value: term,
+              onChange: (e) => setTerm(e.target.value),
+            }),
+            term && h("button", {
+              className: "search-clear-btn",
+              onClick: () => setTerm(""),
+              "aria-label": "Limpar busca"
+            }, "✕")
+          )
         ),
         h("div", { className: "faq-list" }, listContent)
       ),
@@ -777,32 +722,12 @@
                       "button",
                       {
                         type: "button",
-                        className:
-                          "bot-audio-btn" + (isPlaying ? " is-playing" : ""),
+                        className: "audio-btn",
                         onClick: () => handleAudioToggle(faq),
                         "aria-pressed": isPlaying ? "true" : "false",
                         "aria-label": audioLabel,
                       },
-                      h(
-                        "span",
-                        {
-                          className: "bot-audio-icon",
-                          "aria-hidden": "true",
-                        },
-                        isPlaying ? "⏸️" : "🎧"
-                      ),
-                      h(
-                        "span",
-                        { className: "bot-audio-label" },
-                        isPlaying ? "Pausar" : "Audiodescrição"
-                      ),
-                      faq.audioDurationLabel
-                        ? h(
-                            "span",
-                            { className: "bot-audio-duration" },
-                            faq.audioDurationLabel
-                          )
-                        : null
+                      isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
                     )
                   : null
               ),
@@ -1083,7 +1008,10 @@
           },
           "← Voltar"
         ),
-        React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
+        React.createElement("div", { className: "page-header-content" },
+          React.createElement("h1", { className: "page-title" }, "Apresentação"),
+          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+        ),
         React.createElement(
           "button",
           {
@@ -1121,7 +1049,10 @@
           },
           "← Voltar"
         ),
-        React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
+        React.createElement("div", { className: "page-header-content" },
+          React.createElement("h1", { className: "page-title" }, "Apresentação"),
+          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+        ),
         React.createElement(
           "button",
           {
@@ -1173,7 +1104,10 @@
         },
         "← Voltar"
       ),
-      React.createElement("h1", { className: "page-title" }, "FAQ sobre PEP e PrEP"),
+      React.createElement("div", { className: "page-header-content" },
+          React.createElement("h1", { className: "page-title" }, "Apresentação"),
+          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+        ),
       React.createElement(
         "button",
         {
@@ -1209,9 +1143,11 @@
             "button",
             {
               className: "audio-btn",
+              type: "button",
+              "aria-pressed": isPlaying ? "true" : "false",
               onClick: handleAudio
             },
-            `🎵 ${isPlaying ? "Pausar" : "Audiodescrição"}`
+            isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
           )
         )
     )
