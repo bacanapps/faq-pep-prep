@@ -608,3 +608,13 @@ h2 {
 .theme-transition {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Footer */
+.app-footer-line {
+  border-top: 1px solid var(--color-border-card);
+  padding: 1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 2rem;
+}

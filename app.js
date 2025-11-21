@@ -1150,6 +1150,10 @@
             isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
           )
         )
+    ),
+
+    React.createElement("div", { className: "app-footer-line" },
+      "© 2025 Dezembro Vermelho • Ministério da Saúde"
     )
   );
 }
