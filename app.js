@@ -11,6 +11,65 @@
     BOT: "bot",
   };
 
+  // ---- ANALYTICS TRACKER --------------------------------------
+  const AnalyticsTracker = {
+    // Check if gtag is available
+    isAvailable() {
+      return typeof window.gtag === 'function';
+    },
+
+    // Track page views
+    trackPageView(pageName, pageTitle) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'page_view', {
+        page_title: pageTitle,
+        page_location: window.location.href,
+        page_path: window.location.pathname + window.location.hash
+      });
+    },
+
+    // Track FAQ views
+    trackFaqView(faqId, faqQuestion) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'view_faq', {
+        event_category: 'engagement',
+        event_label: faqQuestion,
+        faq_id: faqId,
+        faq_question: faqQuestion
+      });
+    },
+
+    // Track audio plays
+    trackAudioPlay(audioType, contentTitle) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'play_audio', {
+        event_category: 'engagement',
+        event_label: contentTitle,
+        audio_type: audioType,
+        content_title: contentTitle
+      });
+    },
+
+    // Track search queries
+    trackSearch(searchTerm, resultCount) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'search', {
+        search_term: searchTerm,
+        result_count: resultCount
+      });
+    },
+
+    // Track theme toggles
+    trackThemeToggle(newTheme) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'toggle_theme', {
+        event_category: 'engagement',
+        event_label: newTheme,
+        theme: newTheme
+      });
+    }
+  };
+
   // ---- UTIL ---------------------------------------------------
   function toRelative(url) {
     if (!url) return url;
@@ -438,11 +497,25 @@
       if (!stillVisible) teardownAudio();
     }, [list, playingId, teardownAudio]);
 
+    // Track search queries with debounce
+    useEffect(() => {
+      const searchTerm = term.trim();
+      if (!searchTerm) return;
+      const timer = setTimeout(() => {
+        AnalyticsTracker.trackSearch(searchTerm, list.length);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }, [term, list.length]);
+
     const handleAudioToggle = useCallback(
       (faq) => {
+        const wasPlaying = playingId === faq.id;
+        if (!wasPlaying) {
+          AnalyticsTracker.trackAudioPlay('faq', faq.question);
+        }
         toggleAudio(faq.id, faq.audioSrc);
       },
-      [toggleAudio]
+      [toggleAudio, playingId]
     );
 
     const handleBack = useCallback(() => {
@@ -490,7 +563,15 @@
 
         return h(
           "details",
-          { key: faq.id || faq.question, className: "faq-item" },
+          {
+            key: faq.id || faq.question,
+            className: "faq-item",
+            onToggle: (event) => {
+              if (event.target.open) {
+                AnalyticsTracker.trackFaqView(faq.id, faq.question);
+              }
+            }
+          },
           h(
             "summary",
             { className: "faq-question" },
@@ -608,11 +689,25 @@
       if (!stillVisible) teardownAudio();
     }, [list, playingId, teardownAudio]);
 
+    // Track search queries with debounce
+    useEffect(() => {
+      const searchTerm = term.trim();
+      if (!searchTerm) return;
+      const timer = setTimeout(() => {
+        AnalyticsTracker.trackSearch(searchTerm, list.length);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }, [term, list.length]);
+
     const handleAudioToggle = useCallback(
       (faq) => {
+        const wasPlaying = playingId === faq.id;
+        if (!wasPlaying) {
+          AnalyticsTracker.trackAudioPlay('bot', faq.question);
+        }
         toggleAudio(faq.id, faq.audioSrc);
       },
-      [toggleAudio]
+      [toggleAudio, playingId]
     );
 
     const handleBack = useCallback(() => {
@@ -978,8 +1073,12 @@
 
   const handleAudio = React.useCallback(() => {
     if (!state.audioSrc) return;
+    const wasPlaying = playingId === audioId;
+    if (!wasPlaying) {
+      AnalyticsTracker.trackAudioPlay('presentation', state.title || 'Apresentação');
+    }
     toggleAudio(audioId, state.audioSrc);
-  }, [toggleAudio, state.audioSrc]);
+  }, [toggleAudio, state.audioSrc, state.title, playingId]);
 
   const handleBack = React.useCallback((e) => {
     e.preventDefault();
@@ -1171,6 +1270,18 @@
   function App() {
     const [route, navigate] = useRoute();
 
+    // Track page views on route change
+    useEffect(() => {
+      const pageNames = {
+        [Routes.HOME]: 'Home',
+        [Routes.FAQ]: 'Perguntas Frequentes',
+        [Routes.BOT]: 'Bot',
+        [Routes.ABOUT]: 'Apresentação'
+      };
+      const pageName = pageNames[route] || 'Home';
+      AnalyticsTracker.trackPageView(route, pageName);
+    }, [route]);
+
     // theme state: "light" or "dark"
     const [theme, setTheme] = useState(() => {
       // Check URL parameter first
@@ -1197,6 +1308,7 @@
         const url = new URL(window.location);
         url.searchParams.set('theme', next);
         window.history.pushState({}, '', url);
+        AnalyticsTracker.trackThemeToggle(next);
         return next;
       });
     }
