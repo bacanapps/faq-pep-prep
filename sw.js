@@ -1,4 +1,4 @@
-const CACHE_NAME = "prep-pep-pwa-cache-v2";
+const CACHE_NAME = "prep-pep-pwa-cache-v3";
 
 /**
  * Only precache same-origin assets. Do NOT precache external CDNs to avoid CORS issues.
@@ -13,7 +13,18 @@ const PRECACHE_URLS = [
   "./data/faq.json",
   "./assets/img/hero.png",
   "./assets/audio/presentation.mp3",
-  // optional: list some frequently used FAQ audios you know exist
+  // PEP audio files
+  "./assets/audio/pep1.mp3",
+  "./assets/audio/pep2.mp3",
+  "./assets/audio/pep3.mp3",
+  "./assets/audio/pep4.mp3",
+  "./assets/audio/pep5.mp3",
+  "./assets/audio/pep6.mp3",
+  "./assets/audio/pep7.mp3",
+  "./assets/audio/pep8.mp3",
+  "./assets/audio/pep9.mp3",
+  "./assets/audio/pep10.mp3",
+  // PREP audio files (frequently used)
   "./assets/audio/prep1.mp3",
   "./assets/audio/prep2.mp3",
   "./assets/audio/prep3.mp3"
