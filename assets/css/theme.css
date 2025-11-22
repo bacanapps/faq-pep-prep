@@ -611,10 +611,18 @@ h2 {
 
 /* Footer */
 .app-footer-line {
-  border-top: 1px solid var(--color-border-card);
+  border-top: 1px solid var(--border);
   padding: 1rem;
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   text-align: center;
   margin-top: 2rem;
+}
+
+:root[data-theme="light"] .app-footer-line {
+  color: #6b7280;
+}
+
+:root[data-theme="dark"] .app-footer-line {
+  color: #94a3b8;
 }
