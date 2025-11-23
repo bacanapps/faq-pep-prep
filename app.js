@@ -3,6 +3,19 @@
   const { useState, useEffect, useMemo, useRef, useCallback } = React;
   const h = React.createElement;
 
+  // ---- APP VERSION --------------------------------------------
+  const BUILD_VERSION = "v23.11.25 16:45"; // Update this when deploying
+  const getAppVersion = () => {
+    const loaded = new Date().toLocaleString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    return `${BUILD_VERSION} (Carregado: ${loaded})`;
+  };
+
   // ---- ROUTES -------------------------------------------------
   const Routes = {
     HOME: "home",
@@ -470,7 +483,7 @@
       ),
 
       React.createElement("div", { className: "app-footer-line" },
-        "© 2025 Dezembro Vermelho • Ministério da Saúde • v23.11.25 16:45"
+        `© 2025 Dezembro Vermelho • Ministério da Saúde • ${getAppVersion()}`
       )
     );
   }
@@ -662,7 +675,7 @@
       ),
 
       React.createElement("div", { className: "app-footer-line" },
-        "© 2025 Dezembro Vermelho • Ministério da Saúde • v23.11.25 16:45"
+        `© 2025 Dezembro Vermelho • Ministério da Saúde • ${getAppVersion()}`
       )
     );
   }
