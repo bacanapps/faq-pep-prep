@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '24/11/2025, 07:40';
+  const APP_VERSION = '24/11/2025, 13:30';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
@@ -413,12 +413,12 @@
             h(
               "h1",
               { className: "hero-title" },
-              "PrEP & PEP FAQ"
+              "TIRA-DÚVIDAS SOBRE PEP E PrEP"
             ),
             h(
               "p",
               { className: "hero-lede" },
-              "Entenda as estratégias de prevenção antes e depois da exposição"
+              "Saiba mais sobre as profilaxias pós e pré-exposição de risco ao HIV."
             )
           )
         )
@@ -444,7 +444,7 @@
             h(
               "p",
               { className: "choice-desc" },
-              "Conheça mais sobre PrEP e PEP, suas diferenças e importância na prevenção ao HIV"
+              ""
             ),
             h(
               "div",
@@ -465,7 +465,7 @@
             h(
               "p",
               { className: "choice-desc" },
-              "Perguntas Frequentes sobre PrEP e PEP. Encontre respostas confiáveis e atualizadas."
+              ""
             ),
             h(
               "div",
