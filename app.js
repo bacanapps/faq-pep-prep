@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '24/11/2025, 13:30';
+  const APP_VERSION = '01/12/2025, 12:45';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
