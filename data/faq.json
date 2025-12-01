@@ -85,7 +85,7 @@
     "answerHtml": "<p>A PrEP é gratuita e está disponível em unidades do SUS habilitadas em todo o país. O Ministério da Saúde disponibiliza uma ferramenta para localizar essas unidades mais rápido. Confira aqui: <a href=\"https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep\" target=\"_blank\">https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep</a></p>",
   "audioDescription": { "src": "/assets/audio/prep11.mp3", "durationSec": 2 },
     "tags": ["PrEP", "acesso"],
-    "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep" } ]
+    "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://dv2025.short.gy/onde-encontrar-a-prep" } ]
   },
   {
     "id": "prep12",
@@ -282,7 +282,7 @@
   {
     "id": "pep10",
     "question": "Onde posso encontrar a PEP?",
-    "answerHtml": "<p>A PEP está disponível gratuitamente no SUS. O atendimento é oferecido em:</p><ul><li>Serviços de urgência e emergência;</li><li>Centros de testagem e aconselhamento (CTA);</li><li>Serviços especializados em ISTs/HIV.</li></ul><p>Procure o serviço de saúde mais próximo imediatamente após a exposição.</p><p>Painel Onde Encontrar a PEP - <a href=\"https://app.powerbi.com/view?r=eyJrIjoiMjIxNmZlMjEtYTRjNi00NDYxLThjYjMtMDQwYmI3MzQ4NWI1IiwidCI6IjZjMzhiMTU4LWI4OGItNGZjNS04NDkxLTFjNWI0NmI3NDJhYyJ9\" target=\"_blank\">https://app.powerbi.com/view?r=eyJrIjoiMjIxNmZlMjEtYTRjNi00NDYxLThjYjMtMDQwYmI3MzQ4NWI1IiwidCI6IjZjMzhiMTU4LWI4OGItNGZjNS04NDkxLTFjNWI0NmI3NDJhYyJ9</a></p>",
+    "answerHtml": "<p>A PEP está disponível gratuitamente no SUS. O atendimento é oferecido em:</p><ul><li>Serviços de urgência e emergência;</li><li>Centros de testagem e aconselhamento (CTA);</li><li>Serviços especializados em ISTs/HIV.</li></ul><p>Procure o serviço de saúde mais próximo imediatamente após a exposição.</p><p>Painel Onde Encontrar a PEP - <a href=\"https://dv2025.short.gy/onde-encontrar-pep\" target=\"_blank\">https://dv2025.short.gy/onde-encontrar-pep</a></p>",
     "audioDescription": { "src": "/assets/audio/pep10.mp3", "durationSec": 2 },
     "tags": ["PEP", "acesso"],
     "sources": [ { "label": "Painel Onde Encontrar a PEP", "url": " https://dv2025.short.gy/onde-encontrar-pep" } ]
