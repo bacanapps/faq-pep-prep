@@ -285,6 +285,6 @@
     "answerHtml": "<p>A PEP está disponível gratuitamente no SUS. O atendimento é oferecido em:</p><ul><li>Serviços de urgência e emergência;</li><li>Centros de testagem e aconselhamento (CTA);</li><li>Serviços especializados em ISTs/HIV.</li></ul><p>Procure o serviço de saúde mais próximo imediatamente após a exposição.</p><p>Painel Onde Encontrar a PEP - <a href=\"https://app.powerbi.com/view?r=eyJrIjoiMjIxNmZlMjEtYTRjNi00NDYxLThjYjMtMDQwYmI3MzQ4NWI1IiwidCI6IjZjMzhiMTU4LWI4OGItNGZjNS04NDkxLTFjNWI0NmI3NDJhYyJ9\" target=\"_blank\">https://app.powerbi.com/view?r=eyJrIjoiMjIxNmZlMjEtYTRjNi00NDYxLThjYjMtMDQwYmI3MzQ4NWI1IiwidCI6IjZjMzhiMTU4LWI4OGItNGZjNS04NDkxLTFjNWI0NmI3NDJhYyJ9</a></p>",
     "audioDescription": { "src": "/assets/audio/pep10.mp3", "durationSec": 2 },
     "tags": ["PEP", "acesso"],
-    "sources": [ { "label": "Painel Onde Encontrar a PEP", "url": "https://app.powerbi.com/view?r=eyJrIjoiMjIxNmZlMjEtYTRjNi00NDYxLThjYjMtMDQwYmI3MzQ4NWI1IiwidCI6IjZjMzhiMTU4LWI4OGItNGZjNS04NDkxLTFjNWI0NmI3NDJhYyJ9" } ]
+    "sources": [ { "label": "Painel Onde Encontrar a PEP", "url": " https://dv2025.short.gy/onde-encontrar-pep" } ]
   }
 ]
