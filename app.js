@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '01/12/2025, 12:45';
+  const APP_VERSION = '10/12/2025, 20:20';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
@@ -74,8 +74,137 @@
         event_label: newTheme,
         theme: newTheme
       });
+    },
+
+    // Track language toggle
+    trackLanguageToggle(newLanguage) {
+      if (!this.isAvailable()) return;
+      window.gtag('event', 'language_toggle', {
+        language: newLanguage,
+        event_category: 'user_preference'
+      });
     }
   };
+
+  // ---- TRANSLATIONS -------------------------------------------
+  const TRANSLATIONS = {
+    'pt-br': {
+      nav: {
+        home: 'Home',
+        apresentacao: 'Apresentação',
+        faqs: 'Perguntas Frequentes',
+        voltar: 'Voltar'
+      },
+      home: {
+        heroTitle: 'TIRA-DÚVIDAS SOBRE PEP E PrEP',
+        heroDesc: 'Saiba mais sobre as profilaxias pós e pré-exposição de risco ao HIV.',
+        cardApresentacao: {
+          title: 'Apresentação',
+          button: 'Explorar'
+        },
+        cardFaq: {
+          title: 'Perguntas Frequentes',
+          button: 'Explorar'
+        }
+      },
+      apresentacao: {
+        title: 'Apresentação',
+        subtitle: 'FAQ sobre PEP e PrEP',
+        loading: 'Carregando…',
+        audioBtnPlay: '▶️ Audiodescrição',
+        audioBtnPause: '⏸️ Pausar'
+      },
+      faq: {
+        title: 'Perguntas Frequentes',
+        subtitle: 'PrEP & PEP FAQ',
+        searchPlaceholder: 'Buscar por palavra-chave…',
+        clearBtn: 'Limpar busca',
+        loading: 'Carregando perguntas…',
+        noResults: 'Nenhuma pergunta encontrada para esse termo.',
+        retry: 'Tentar novamente',
+        audioBtnPlay: '▶️ Audiodescrição',
+        audioBtnPause: '⏸️ Pausar'
+      },
+      common: {
+        themeToggleAria: 'Alternar tema',
+        languageToggleAria: 'Alternar idioma',
+        footer: '© 2025 Dezembro Vermelho • Ministério da Saúde'
+      }
+    },
+    'en': {
+      nav: {
+        home: 'Home',
+        apresentacao: 'Introduction',
+        faqs: 'FAQs',
+        voltar: 'Back'
+      },
+      home: {
+        heroTitle: 'PEP & PrEP Q&A',
+        heroDesc: 'Learn more about post and pre-exposure prophylaxis for HIV risk.',
+        cardApresentacao: {
+          title: 'Introduction',
+          button: 'Explore'
+        },
+        cardFaq: {
+          title: 'Frequently Asked Questions',
+          button: 'Explore'
+        }
+      },
+      apresentacao: {
+        title: 'Introduction',
+        subtitle: 'FAQ about PEP and PrEP',
+        loading: 'Loading…',
+        audioBtnPlay: '▶️ Audio Description',
+        audioBtnPause: '⏸️ Pause'
+      },
+      faq: {
+        title: 'Frequently Asked Questions',
+        subtitle: 'PrEP & PEP FAQ',
+        searchPlaceholder: 'Search by keyword…',
+        clearBtn: 'Clear search',
+        loading: 'Loading questions…',
+        noResults: 'No questions found for that term.',
+        retry: 'Try again',
+        audioBtnPlay: '▶️ Audio Description',
+        audioBtnPause: '⏸️ Pause'
+      },
+      common: {
+        themeToggleAria: 'Toggle theme',
+        languageToggleAria: 'Toggle language',
+        footer: '© 2025 Red December • Ministry of Health'
+      }
+    }
+  };
+
+  /**
+   * Translation helper function
+   * @param {string} language - The current language ('en' or 'pt-br')
+   * @param {string} key - The translation key path (e.g., 'home.heroTitle')
+   * @returns {string} The translated string
+   */
+  function t(language, key) {
+    const keys = key.split('.');
+    let value = TRANSLATIONS[language];
+
+    for (const k of keys) {
+      if (value && typeof value === 'object') {
+        value = value[k];
+      } else {
+        // Fallback to Portuguese if key not found
+        value = TRANSLATIONS['pt-br'];
+        for (const k2 of keys) {
+          if (value && typeof value === 'object') {
+            value = value[k2];
+          } else {
+            return key; // Return key if not found
+          }
+        }
+        break;
+      }
+    }
+
+    return value || key;
+  }
 
   // ---- UTIL ---------------------------------------------------
   function toRelative(url) {
@@ -335,6 +464,58 @@
     return [route, navigate];
   }
 
+  // ---- LANGUAGE HOOK -----------------------------------------
+  function useLanguage() {
+    const [language, setLanguage] = useState(() => {
+      // 1. Check URL parameter first (?lang=en)
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+      if (langParam === 'en' || langParam === 'pt-br' || langParam === 'pt') {
+        return langParam === 'en' ? 'en' : 'pt-br';
+      }
+
+      // 2. Check localStorage
+      const saved = localStorage.getItem('faq-pep-prep-language');
+      if (saved === 'en' || saved === 'pt-br') {
+        return saved;
+      }
+
+      // 3. Browser language detection (default)
+      const browserLang = navigator.language || navigator.userLanguage;
+      if (browserLang && browserLang.toLowerCase().startsWith('en')) {
+        return 'en';
+      }
+
+      // 4. Default to Portuguese
+      return 'pt-br';
+    });
+
+    const toggleLanguage = useCallback(() => {
+      setLanguage(current => {
+        const next = current === 'en' ? 'pt-br' : 'en';
+        localStorage.setItem('faq-pep-prep-language', next);
+        document.documentElement.setAttribute('lang', next);
+
+        // Update URL parameter
+        const url = new URL(window.location);
+        url.searchParams.set('lang', next);
+        window.history.pushState({}, '', url);
+
+        // Track language change
+        AnalyticsTracker.trackLanguageToggle(next);
+
+        return next;
+      });
+    }, []);
+
+    // Apply language on mount
+    useEffect(() => {
+      document.documentElement.setAttribute('lang', language);
+    }, [language]);
+
+    return { language, toggleLanguage };
+  }
+
   // ---- HEADER HERO -------------------------------------------
   const HeaderHero = ({ title, subtitle, rightSlot }) =>
     h(
@@ -384,7 +565,7 @@
   }
 
   // ---- PAGE: HOME --------------------------------------------
-  function Home({ onNavigate, onToggleTheme, currentTheme }) {
+  function Home({ onNavigate, onToggleTheme, currentTheme, language, toggleLanguage }) {
     return h(
       "div",
       { className: "page fade-in" },
@@ -395,9 +576,21 @@
         {
           className: "theme-toggle-btn",
           onClick: onToggleTheme,
-          "aria-label": "Alternar tema"
+          "aria-label": t(language, 'common.themeToggleAria')
         },
         currentTheme === "light" ? "🌙" : "☀️"
+      ),
+
+      // Language toggle button (fixed position)
+      h(
+        "button",
+        {
+          className: "language-toggle-btn",
+          onClick: toggleLanguage,
+          "aria-label": t(language, 'common.languageToggleAria'),
+          style: { position: 'fixed', top: '1.5rem', right: '5rem' }
+        },
+        language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
       ),
 
       // Hero section with gradient glass card
@@ -413,12 +606,12 @@
             h(
               "h1",
               { className: "hero-title" },
-              "TIRA-DÚVIDAS SOBRE PEP E PrEP"
+              t(language, 'home.heroTitle')
             ),
             h(
               "p",
               { className: "hero-lede" },
-              "Saiba mais sobre as profilaxias pós e pré-exposição de risco ao HIV."
+              t(language, 'home.heroDesc')
             )
           )
         )
@@ -440,7 +633,7 @@
               onClick: () => onNavigate(Routes.ABOUT)
             },
             h("div", { className: "choice-icon" }, "📘"),
-            h("h2", { className: "choice-title" }, "Apresentação"),
+            h("h2", { className: "choice-title" }, t(language, 'home.cardApresentacao.title')),
             h(
               "p",
               { className: "choice-desc" },
@@ -449,7 +642,7 @@
             h(
               "div",
               { className: "actions" },
-              h("button", { className: "btn btn-primary" }, "Explorar")
+              h("button", { className: "btn btn-primary" }, t(language, 'home.cardApresentacao.button'))
             )
           ),
 
@@ -461,7 +654,7 @@
               onClick: () => onNavigate(Routes.FAQ)
             },
             h("div", { className: "choice-icon" }, "❓"),
-            h("h2", { className: "choice-title" }, "Perguntas Frequentes"),
+            h("h2", { className: "choice-title" }, t(language, 'home.cardFaq.title')),
             h(
               "p",
               { className: "choice-desc" },
@@ -470,30 +663,36 @@
             h(
               "div",
               { className: "actions" },
-              h("button", { className: "btn btn-green" }, "Explorar")
+              h("button", { className: "btn btn-green" }, t(language, 'home.cardFaq.button'))
             )
           )
         )
       ),
 
       React.createElement("div", { className: "app-footer-line" },
-        `© 2025 Dezembro Vermelho • Ministério da Saúde • ${getAppVersion()}`
+        h("span", null, `${t(language, 'common.footer')} • ${getAppVersion()}`),
+        h("button", {
+          className: "footer-lang-toggle",
+          onClick: toggleLanguage,
+          "aria-label": t(language, 'common.languageToggleAria'),
+          style: { marginLeft: '12px', fontSize: '0.875rem', cursor: 'pointer', background: 'none', border: 'none', color: 'inherit' }
+        }, language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN')
       )
     );
   }
 
   // ---- PAGE: FAQ ---------------------------------------------
-  function Faq({ onBack, onToggleTheme, currentTheme }) {
+  function Faq({ onBack, onToggleTheme, currentTheme, language, toggleLanguage }) {
     const [term, setTerm] = useState("");
     const { playingId, toggle: toggleAudio, teardown: teardownAudio } =
       useHowlerAudio();
     const { faqItems, loading, error, reload } = useFaqData(teardownAudio);
 
     const list = useMemo(() => {
-      const t = term.trim().toLowerCase();
-      if (!t) return faqItems;
+      const needle = term.trim().toLowerCase();
+      if (!needle) return faqItems;
       return faqItems.filter(({ searchText = "" }) =>
-        searchText.includes(t)
+        searchText.includes(needle)
       );
     }, [faqItems, term]);
 
@@ -530,12 +729,15 @@
       onBack();
     }, [teardownAudio, onBack]);
 
+    // Hide audio buttons when English selected (audio files not ready)
+    const showAudioButtons = language === 'pt-br';
+
     let listContent;
     if (loading) {
       listContent = h(
         "div",
         { className: "state-message muted" },
-        "Carregando perguntas…"
+        t(language, 'faq.loading')
       );
     } else if (error) {
       listContent = h(
@@ -552,21 +754,21 @@
               reload();
             },
           },
-          "Tentar novamente"
+          t(language, 'faq.retry')
         )
       );
     } else if (list.length === 0) {
       listContent = h(
         "div",
         { className: "state-message muted" },
-        "Nenhuma pergunta encontrada para esse termo."
+        t(language, 'faq.noResults')
       );
     } else {
       listContent = list.map((faq) => {
         const isPlaying = playingId === faq.id;
         const audioLabel = isPlaying
-          ? "Pausar audiodescrição"
-          : "Ouvir audiodescrição";
+          ? t(language, 'faq.audioBtnPause')
+          : t(language, 'faq.audioBtnPlay');
 
         return h(
           "details",
@@ -587,7 +789,7 @@
               { className: "faq-question-text" },
               faq.question || ""
             ),
-            faq.audioSrc
+            showAudioButtons && faq.audioSrc
               ? h(
                   "button",
                   {
@@ -606,7 +808,7 @@
                     "aria-pressed": isPlaying ? "true" : "false",
                     "aria-label": audioLabel,
                   },
-                  isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
+                  isPlaying ? t(language, 'faq.audioBtnPause') : t(language, 'faq.audioBtnPlay')
                 )
               : null
           ),
@@ -622,8 +824,8 @@
       "div",
       { className: "fade-in theme-transition" },
       h(HeaderHero, {
-        title: "Perguntas Frequentes",
-        subtitle: "PrEP & PEP FAQ"
+        title: t(language, 'faq.title'),
+        subtitle: t(language, 'faq.subtitle')
       }),
       h(
         "section",
@@ -638,21 +840,21 @@
               className: "btn btn-green",
               onClick: handleBack,
             },
-            "Voltar"
+            t(language, 'nav.voltar')
           ),
           h(
             "div",
             { className: "search-input-wrapper" },
             h("input", {
               className: "faq-search",
-              placeholder: "Buscar por palavra-chave…",
+              placeholder: t(language, 'faq.searchPlaceholder'),
               value: term,
               onChange: (e) => setTerm(e.target.value),
             }),
             term && h("button", {
               className: "search-clear-btn",
               onClick: () => setTerm(""),
-              "aria-label": "Limpar busca"
+              "aria-label": t(language, 'faq.clearBtn')
             }, "✕")
           )
         ),
@@ -663,13 +865,30 @@
         {
           className: "theme-toggle-btn",
           onClick: onToggleTheme,
-          "aria-label": "Alternar tema"
+          "aria-label": t(language, 'common.themeToggleAria')
         },
         currentTheme === "light" ? "🌙" : "☀️"
       ),
 
+      h(
+        "button",
+        {
+          className: "language-toggle-btn",
+          onClick: toggleLanguage,
+          "aria-label": t(language, 'common.languageToggleAria'),
+          style: { position: 'fixed', top: '1.5rem', right: '5rem' }
+        },
+        language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
+      ),
+
       React.createElement("div", { className: "app-footer-line" },
-        `© 2025 Dezembro Vermelho • Ministério da Saúde • ${getAppVersion()}`
+        h("span", null, `${t(language, 'common.footer')} • ${getAppVersion()}`),
+        h("button", {
+          className: "footer-lang-toggle",
+          onClick: toggleLanguage,
+          "aria-label": t(language, 'common.languageToggleAria'),
+          style: { marginLeft: '12px', fontSize: '0.875rem', cursor: 'pointer', background: 'none', border: 'none', color: 'inherit' }
+        }, language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN')
       )
     );
   }
@@ -984,7 +1203,7 @@
   }
 
   // ---- PAGE: PRESENTATION / APRESENTAÇÃO ---------------------
-  function Presentation({ onBack, onToggleTheme, currentTheme }) {
+  function Presentation({ onBack, onToggleTheme, currentTheme, language, toggleLanguage }) {
   const { playingId, toggle: toggleAudio, teardown: teardownAudio } =
     useHowlerAudio();
 
@@ -1082,16 +1301,19 @@
     if (!state.audioSrc) return;
     const wasPlaying = playingId === audioId;
     if (!wasPlaying) {
-      AnalyticsTracker.trackAudioPlay('presentation', state.title || 'Apresentação');
+      AnalyticsTracker.trackAudioPlay('presentation', state.title || t(language, 'apresentacao.title'));
     }
     toggleAudio(audioId, state.audioSrc);
-  }, [toggleAudio, state.audioSrc, state.title, playingId]);
+  }, [toggleAudio, state.audioSrc, state.title, playingId, language]);
 
   const handleBack = React.useCallback((e) => {
     e.preventDefault();
     teardownAudio();
     onBack();
   }, [teardownAudio, onBack]);
+
+  // Hide audio button when English selected (audio not ready yet)
+  const showAudioButton = language === 'pt-br';
 
   // helper to render duration like "50s" or "1m 02s"
   function renderDurationLabel(sec) {
@@ -1120,26 +1342,36 @@
             className: "back-link",
             onClick: handleBack
           },
-          "← Voltar"
+          `← ${t(language, 'nav.voltar')}`
         ),
         React.createElement("div", { className: "page-header-content" },
-          React.createElement("h1", { className: "page-title" }, "Apresentação"),
-          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+          React.createElement("h1", { className: "page-title" }, t(language, 'apresentacao.title')),
+          React.createElement("p", { className: "page-subtle" }, t(language, 'apresentacao.subtitle'))
         ),
         React.createElement(
           "button",
           {
             className: "theme-toggle-btn",
             onClick: onToggleTheme,
-            "aria-label": "Alternar tema"
+            "aria-label": t(language, 'common.themeToggleAria')
           },
           currentTheme === "light" ? "🌙" : "☀️"
+        ),
+        React.createElement(
+          "button",
+          {
+            className: "language-toggle-btn",
+            onClick: toggleLanguage,
+            "aria-label": t(language, 'common.languageToggleAria'),
+            style: { position: 'absolute', top: '16px', right: '60px' }
+          },
+          language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
         )
       ),
       React.createElement(
         "div",
         { className: "presentation-card" },
-        React.createElement("p", null, "Carregando...")
+        React.createElement("p", null, t(language, 'apresentacao.loading'))
       )
     );
   }
@@ -1161,20 +1393,30 @@
             className: "back-link",
             onClick: handleBack
           },
-          "← Voltar"
+          `← ${t(language, 'nav.voltar')}`
         ),
         React.createElement("div", { className: "page-header-content" },
-          React.createElement("h1", { className: "page-title" }, "Apresentação"),
-          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+          React.createElement("h1", { className: "page-title" }, t(language, 'apresentacao.title')),
+          React.createElement("p", { className: "page-subtle" }, t(language, 'apresentacao.subtitle'))
         ),
         React.createElement(
           "button",
           {
             className: "theme-toggle-btn",
             onClick: onToggleTheme,
-            "aria-label": "Alternar tema"
+            "aria-label": t(language, 'common.themeToggleAria')
           },
           currentTheme === "light" ? "🌙" : "☀️"
+        ),
+        React.createElement(
+          "button",
+          {
+            className: "language-toggle-btn",
+            onClick: toggleLanguage,
+            "aria-label": t(language, 'common.languageToggleAria'),
+            style: { position: 'absolute', top: '16px', right: '60px' }
+          },
+          language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
         )
       ),
       React.createElement(
@@ -1216,20 +1458,30 @@
           className: "back-link",
           onClick: handleBack
         },
-        "← Voltar"
+        `← ${t(language, 'nav.voltar')}`
       ),
       React.createElement("div", { className: "page-header-content" },
-          React.createElement("h1", { className: "page-title" }, "Apresentação"),
-          React.createElement("p", { className: "page-subtle" }, "FAQ sobre PEP e PrEP")
+          React.createElement("h1", { className: "page-title" }, t(language, 'apresentacao.title')),
+          React.createElement("p", { className: "page-subtle" }, t(language, 'apresentacao.subtitle'))
         ),
       React.createElement(
         "button",
         {
           className: "theme-toggle-btn",
           onClick: onToggleTheme,
-          "aria-label": "Alternar tema"
+          "aria-label": t(language, 'common.themeToggleAria')
         },
         currentTheme === "light" ? "🌙" : "☀️"
+      ),
+      React.createElement(
+        "button",
+        {
+          className: "language-toggle-btn",
+          onClick: toggleLanguage,
+          "aria-label": t(language, 'common.languageToggleAria'),
+          style: { position: 'absolute', top: '16px', right: '60px' }
+        },
+        language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
       )
     ),
 
@@ -1242,14 +1494,14 @@
         { className: "presentation-heroimg-wrapper" },
         React.createElement("img", {
           src: state.heroImage,
-          alt: "FAQ sobre PEP e PrEP"
+          alt: t(language, 'apresentacao.subtitle')
         })
       ),
       React.createElement("div", {
         className: "presentation-textblock",
         dangerouslySetInnerHTML: { __html: presentationHtml }
       }),
-      state.audioSrc &&
+      showAudioButton && state.audioSrc &&
         React.createElement(
           "div",
           { className: "audio-row" },
@@ -1261,13 +1513,19 @@
               "aria-pressed": isPlaying ? "true" : "false",
               onClick: handleAudio
             },
-            isPlaying ? "⏸️ Pausar" : "▶️ Audiodescrição"
+            isPlaying ? t(language, 'apresentacao.audioBtnPause') : t(language, 'apresentacao.audioBtnPlay')
           )
         )
     ),
 
     React.createElement("div", { className: "app-footer-line" },
-      "© 2025 Dezembro Vermelho • Ministério da Saúde"
+      h("span", null, `${t(language, 'common.footer')} • ${getAppVersion()}`),
+      h("button", {
+        className: "footer-lang-toggle",
+        onClick: toggleLanguage,
+        "aria-label": t(language, 'common.languageToggleAria'),
+        style: { marginLeft: '12px', fontSize: '0.875rem', cursor: 'pointer', background: 'none', border: 'none', color: 'inherit' }
+      }, language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN')
     )
   );
 }
@@ -1276,18 +1534,19 @@
   // ---- APP (ROUTER SWITCH + THEME) ---------------------------
   function App() {
     const [route, navigate] = useRoute();
+    const { language, toggleLanguage } = useLanguage();
 
     // Track page views on route change
     useEffect(() => {
       const pageNames = {
         [Routes.HOME]: 'Home',
-        [Routes.FAQ]: 'Perguntas Frequentes',
+        [Routes.FAQ]: t(language, 'faq.title'),
         [Routes.BOT]: 'Bot',
-        [Routes.ABOUT]: 'Apresentação'
+        [Routes.ABOUT]: t(language, 'apresentacao.title')
       };
       const pageName = pageNames[route] || 'Home';
       AnalyticsTracker.trackPageView(route, pageName);
-    }, [route]);
+    }, [route, language]);
 
     // theme state: "light" or "dark"
     const [theme, setTheme] = useState(() => {
@@ -1326,7 +1585,9 @@
       screen = h(Faq, {
         onBack: () => navigate(Routes.HOME),
         onToggleTheme: toggleTheme,
-        currentTheme: theme
+        currentTheme: theme,
+        language,
+        toggleLanguage
       });
     } else if (route === Routes.BOT) {
       screen = h(Bot, {
@@ -1338,13 +1599,17 @@
       screen = h(Presentation, {
         onBack: () => navigate(Routes.HOME),
         onToggleTheme: toggleTheme,
-        currentTheme: theme
+        currentTheme: theme,
+        language,
+        toggleLanguage
       });
     } else {
       screen = h(Home, {
         onNavigate: (nextRoute) => navigate(nextRoute),
         onToggleTheme: toggleTheme,
         currentTheme: theme,
+        language,
+        toggleLanguage
       });
     }
 
