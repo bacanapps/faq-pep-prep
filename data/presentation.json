@@ -1,8 +1,12 @@
 {
-  "eyebrow": "Apresentação", 
+  "eyebrow": "Apresentação",
+  "eyebrowEn": "Presentation",
   "title": "Tira-dúvidas sobre PrEP e PEP",
+  "titleEn": "FAQs about PrEP and PEP",
   "lede": "Conheça formas eficazes e gratuitas de prevenção ao HIV pelo SUS.",
+  "ledeEn": "Learn about safe and free HIV prevention methods provided by the SUS.",
   "paragraphs": "<p>A prevenção ao HIV é um compromisso compartilhado entre o poder público e a sociedade. Entre as estratégias que fortalecem essa resposta estão a profilaxia pré-exposição (PrEP) e a profilaxia pós-exposição (PEP) — tecnologias seguras, eficazes e ofertadas gratuitamente pelo SUS.</p><p>Essas ferramentas fazem parte da estratégia de Prevenção Combinada, que integra diferentes ações de cuidado, autonomia e autocuidado, promovendo uma resposta mais ampla, humana e informada pela ciência.</p><p>Neste espaço, convidamos você a conhecer mais sobre essas formas de prevenção, tirar dúvidas e entender como cada pessoa pode ser protagonista na construção de uma sociedade informada e sem estigmas ou preconceitos.</p><p>Pergunte, informe-se, compartilhe. Prevenir é também um ato de cidadania.</p>",
+  "paragraphsEn": "<p>HIV prevention is a shared commitment between the government and society. Among the strategies that strengthen this response are pre-exposure prophylaxis (PrEP) and post-exposure prophylaxis (PEP)—safe, effective technologies provided free of charge by the SUS.</p><p>These tools are part of the Combination Prevention strategy, which integrates different prevention, autonomy, and self-care actions, promoting a broader, more humane, and science-informed response.</p><p>In this space, we invite you to find out more about these forms of prevention, and understand how each person can play a leading role in building a conscious society, free of stigma and prejudice.</p><p>Ask questions, get informed, share. Prevention is also an act of citizenship.</p>",
   "disclaimerHtml": "",
   "audioDescription": {
     "src": "/assets/audio/presentation.mp3",

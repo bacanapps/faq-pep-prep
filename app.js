@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '11/12/2025, 10:00';
+  const APP_VERSION = '11/12/2025, 11:11';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
@@ -134,15 +134,15 @@
     'en': {
       nav: {
         home: 'Home',
-        apresentacao: 'Introduction',
+        apresentacao: 'Presentation',
         faqs: 'FAQs',
         voltar: 'Back'
       },
       home: {
-        heroTitle: 'PEP & PrEP Q&A',
-        heroDesc: 'Learn more about post and pre-exposure prophylaxis for HIV risk.',
+        heroTitle: 'FAQs ABOUT PrEP AND PrEP',
+        heroDesc: 'Learn more about post- and pre-exposure prophylaxis for HIV risk.',
         cardApresentacao: {
-          title: 'Introduction',
+          title: 'Presentation',
           button: 'Explore'
         },
         cardFaq: {
@@ -151,7 +151,7 @@
         }
       },
       apresentacao: {
-        title: 'Introduction',
+        title: 'Presentation',
         subtitle: 'FAQ about PEP and PrEP',
         loading: 'Loading…',
         audioBtnPlay: '▶️ Audio Description',
@@ -1210,12 +1210,17 @@
     error: null,
 
     eyebrow: "",
+    eyebrowEn: "",
     title: "",
+    titleEn: "",
     lede: "",
+    ledeEn: "",
     language: "",
 
     paragraphsHtml: "",     // string of HTML for body paragraphs
     paragraphsArray: [],    // array of paragraphs (legacy fallback)
+    paragraphsHtmlEn: "",   // English version
+    paragraphsArrayEn: [],  // English array version
 
     disclaimerHtml: "",
 
@@ -1246,6 +1251,15 @@
           paragraphsArray = json.paragraphs;
         }
 
+        // English paragraphs
+        let paragraphsHtmlEn = "";
+        let paragraphsArrayEn = [];
+        if (typeof json.paragraphsEn === "string") {
+          paragraphsHtmlEn = json.paragraphsEn;
+        } else if (Array.isArray(json.paragraphsEn)) {
+          paragraphsArrayEn = json.paragraphsEn;
+        }
+
         const audioObj = json.audioDescription || {};
 
         setState({
@@ -1253,12 +1267,17 @@
           error: null,
 
           eyebrow: json.eyebrow || "Apresentação",
+          eyebrowEn: json.eyebrowEn || "Presentation",
           title: json.title || "",
+          titleEn: json.titleEn || "",
           lede: json.lede || "",
+          ledeEn: json.ledeEn || "",
           language: json.language || "",
 
           paragraphsHtml,
           paragraphsArray,
+          paragraphsHtmlEn,
+          paragraphsArrayEn,
 
           disclaimerHtml: json.disclaimerHtml || "",
 
@@ -1424,13 +1443,28 @@
   }
 
   //
-  // Build the presentation text block
+  // Build the presentation text block based on language
   //
   let presentationHtml = "";
-  if (state.paragraphsHtml) {
-    presentationHtml = state.paragraphsHtml;
-  } else if (state.paragraphsArray.length) {
-    presentationHtml = state.paragraphsArray.map(p => `<p>${p}</p>`).join("");
+  if (language === 'en') {
+    // Use English content
+    if (state.paragraphsHtmlEn) {
+      presentationHtml = state.paragraphsHtmlEn;
+    } else if (state.paragraphsArrayEn.length) {
+      presentationHtml = state.paragraphsArrayEn.map(p => `<p>${p}</p>`).join("");
+    } else if (state.paragraphsHtml) {
+      // Fallback to Portuguese if English not available
+      presentationHtml = state.paragraphsHtml;
+    } else if (state.paragraphsArray.length) {
+      presentationHtml = state.paragraphsArray.map(p => `<p>${p}</p>`).join("");
+    }
+  } else {
+    // Use Portuguese content
+    if (state.paragraphsHtml) {
+      presentationHtml = state.paragraphsHtml;
+    } else if (state.paragraphsArray.length) {
+      presentationHtml = state.paragraphsArray.map(p => `<p>${p}</p>`).join("");
+    }
   }
 
   if (state.disclaimerHtml) {

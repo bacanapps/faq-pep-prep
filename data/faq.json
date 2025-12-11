@@ -2,175 +2,219 @@
   {
     "id": "prep1",
     "question": "O que é PrEP?",
+    "questionEn": "What is PrEP?",
     "answerHtml": "<p>A profilaxia pré-exposição (PrEP) é uma forma eficaz de prevenir a infecção pelo HIV. Consiste no uso diário ou sob demanda de um comprimido contendo dois medicamentos (tenofovir + entricitabina), que impedem que o vírus se estabeleça no organismo em caso de exposição.</p>",
-  "audioDescription": { "src": "/assets/audio/prep1.mp3", "durationSec": 20 },
+    "answerHtmlEn": "<p>Pre-exposure prophylaxis (PrEP) is an effective way to prevent HIV infection. It consists of daily or on-demand use of a tablet containing two drugs (tenofovir + emtricitabine), which prevent the virus from establishing itself in the body in case of exposure.</p>",
+    "audioDescription": { "src": "/assets/audio/prep1.mp3", "durationSec": 20 },
     "tags": ["PrEP", "definição"],
     "sources": []
   },
   {
     "id": "prep2",
     "question": "Qual é a diferença entre PrEP e PEP?",
+    "questionEn": "What is the difference between PrEP and PEP?",
     "answerHtml": "<p>A PrEP (profilaxia pré-exposição) é usada antes de uma possível exposição ao HIV, e a PEP (profilaxia pós-exposição) é usada depois de uma situação de risco, como relação sexual sem o uso de preservativo, violência sexual ou acidente com material biológico.</p><p>A PEP é uma medida de urgência que deve ser iniciada preferencialmente nas primeiras duas horas e no máximo até 72 horas após a exposição, sendo mantida por 28 dias.</p>",
-  "audioDescription": { "src": "/assets/audio/prep2.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>PrEP (pre-exposure prophylaxis) is used before possible exposure to HIV, and PEP (post-exposure prophylaxis) is used after a risk situation, such as sexual intercourse without a condom, sexual violence, or an accident involving biological material.</p><p>PEP is an emergency measure that should preferably be started within the first two hours and no later than 72 hours after exposure, and continued for 28 days.</p>",
+    "audioDescription": { "src": "/assets/audio/prep2.mp3", "durationSec": 2 },
     "tags": ["PrEP", "PEP", "comparação"],
     "sources": []
   },
   {
     "id": "prep3",
     "question": "Como a PrEP funciona?",
+    "questionEn": "How does PrEP work?",
     "answerHtml": "<p>A PrEP cria uma barreira de proteção no corpo. Se houver contato com o HIV, o medicamento bloqueia a infecção. A adesão diária é essencial para garantir a eficácia.</p>",
-  "audioDescription": { "src": "/assets/audio/prep3.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>PrEP creates a protective barrier in the body. If there is contact with HIV, the medication blocks infection. Daily adherence is essential to ensure effectiveness.</p>",
+    "audioDescription": { "src": "/assets/audio/prep3.mp3", "durationSec": 2 },
     "tags": ["PrEP", "funcionamento"],
     "sources": []
   },
   {
     "id": "prep4",
     "question": "Por que tomar a PrEP?",
+    "questionEn": "Why take PrEP?",
     "answerHtml": "<p>Por ano, cerca de 40 mil pessoas se infectam pelo HIV no Brasil. A PrEP é uma ferramenta segura e gratuita do SUS que amplia as opções de cuidado e prevenção, especialmente para quem está mais exposto à infecção.</p>",
-  "audioDescription": { "src": "/assets/audio/prep4.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Every year, around 40,000 people become infected with HIV in Brazil. PrEP is a safe and free tool provided by the Brazilian Unified Health System (SUS) that broadens care and prevention options, especially for those who are most exposed to infection.</p>",
+    "audioDescription": { "src": "/assets/audio/prep4.mp3", "durationSec": 2 },
     "tags": ["PrEP", "benefícios"],
     "sources": []
   },
   {
     "id": "prep5",
     "question": "Quem pode usar a PrEP?",
+    "questionEn": "Who can take PrEP?",
     "answerHtml": "<p>A PrEP pode ser utilizada por quaisquer pessoas sexualmente ativas, com idade ≥15 anos e peso ≥35kg. Algumas pessoas são priorizadas devido ao momento de vida ou por apresentarem situação de maior vulnerabilidade ao HIV, como:</p><ul><li>quem tem relações sexuais sem uso regular de preservativo;</li><li>quem usa repetidamente a profilaxia pós-exposição (PEP);</li><li>quem tem histórico de infecções sexualmente transmissíveis (ISTs);</li><li>pessoas em contextos de troca de sexo por dinheiro, abrigo, objetos ou drogas;</li><li>pessoas que praticam chemsex, ou seja, sexo sob efeito de drogas psicoativas.</li></ul>",
-  "audioDescription": { "src": "/assets/audio/prep5.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>PrEP can be used by anyone who is sexually active, aged ≥ 15 years, and weighing ≥ 35kg. Some people are prioritized due to their stage of life or because they are more vulnerable to HIV, such as:</p><ul><li>those who have sex without consistent condom use;</li><li>those who repeatedly use post-exposure prophylaxis (PEP);</li><li>those with a history of sexually transmitted infections (STIs);</li><li>people in contexts of exchanging sex for money, shelter, objects, or drugs;</li><li>people who practice chemsex, that is, sex under the influence of psychoactive drugs.</li></ul>",
+    "audioDescription": { "src": "/assets/audio/prep5.mp3", "durationSec": 2 },
     "tags": ["PrEP", "público"],
     "sources": []
   },
   {
     "id": "prep6",
     "question": "Como começar a usar a PrEP?",
+    "questionEn": "How to start taking PrEP?",
     "answerHtml": "<p>Procure um serviço de saúde habilitado. Após avaliação inicial, que inclui o entendimento e a motivação para iniciar a PrEP, testagem para HIV e outras IST, a PrEP pode ser iniciada. O acompanhamento é a cada quatro meses ou semestral para pessoas que fazem uso regular da profilaxia. Ambas as formas exigem testagens rotineiras e renovação da medicação.</p>",
-  "audioDescription": { "src": "/assets/audio/prep6.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Find an authorized healthcare provider. After an initial assessment, which includes understanding and motivation to start PrEP, testing for HIV and other STIs, PrEP can be started. Follow-up appointments are every four months or six months for people who use prophylaxis regularly. Both forms require routine testing and prescription renewal.</p>",
+    "audioDescription": { "src": "/assets/audio/prep6.mp3", "durationSec": 2 },
     "tags": ["PrEP", "início"],
     "sources": []
   },
   {
     "id": "prep7",
     "question": "Posso deixar de usar camisinha se estiver tomando PrEP?",
+    "questionEn": "Can I stop using condoms if I'm taking PrEP?",
     "answerHtml": "<p>Não. A PrEP protege apenas contra o HIV. O uso combinado da PrEP com o preservativo oferece proteção também contra outras infecções sexualmente transmissíveis como sífilis, hepatites virais, gonorreia, clamídia, dentre outras.</p>",
-  "audioDescription": { "src": "/assets/audio/prep7.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>No. PrEP only protects against HIV. The combined use of PrEP with condoms also offers protection against other sexually transmitted infections such as syphilis, viral hepatitis, gonorrhea, chlamydia, among others.</p>",
+    "audioDescription": { "src": "/assets/audio/prep7.mp3", "durationSec": 2 },
     "tags": ["PrEP", "preservativo"],
     "sources": []
   },
   {
     "id": "prep8",
     "question": "A PrEP é segura?",
+    "questionEn": "Is PrEP safe?",
     "answerHtml": "<p>Sim. Estudos científicos confirmam que a PrEP é segura e altamente eficaz quando usada corretamente. Efeitos leves, como náusea, dor de cabeça, podem ocorrer no início, mas tendem a desaparecer.</p>",
-  "audioDescription": { "src": "/assets/audio/prep8.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Yes. Scientific studies confirm that PrEP is safe and highly effective when used correctly. Mild side effects, such as nausea and headache, may occur at first, but they tend to subside.</p>",
+    "audioDescription": { "src": "/assets/audio/prep8.mp3", "durationSec": 2 },
     "tags": ["PrEP", "segurança"],
     "sources": []
   },
   {
     "id": "prep9",
     "question": "Quanto tempo leva para a PrEP fazer efeito?",
+    "questionEn": "How long does it take for PrEP to work?",
     "answerHtml": "<p>O início seguro da proteção apresenta variações relacionadas à identidade de gênero, ao tipo de exposição e a presença de hormônios à base de estradiol. O tempo necessário de uso inicial para a proteção, considerando as variações, segue descrito abaixo:</p><table><thead><tr><th>População</th><th>Dosagem de comprimidos</th></tr></thead><tbody><tr><td>Mulheres cis e qualquer pessoa em uso de hormônio à base de estradiol</td><td>7 dias</td></tr><tr><td>Homens cis, pessoas não binárias designadas como do sexo masculino ao nascer, e travestis e mulheres transexuais que não estejam em uso de hormônios à base de estradiol</td><td>2 horas</td></tr></tbody></table>",
-  "audioDescription": { "src": "/assets/audio/prep9.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>The onset of protection varies depending on gender identity, type of exposure, and the presence of estradiol-based hormones. The initial period of use required for protection, considering these variations, is described below:</p><table><thead><tr><th>Population</th><th>Onset of protection</th></tr></thead><tbody><tr><td>Cisgender women and anyone using estradiol-based hormones</td><td>7 days</td></tr><tr><td>Cisgender men, non-binary people assigned male at birth, and transvestites and transgender women who are not using estradiol-based hormones</td><td>2 hours</td></tr></tbody></table>",
+    "audioDescription": { "src": "/assets/audio/prep9.mp3", "durationSec": 2 },
     "tags": ["PrEP", "tempo"],
     "sources": []
   },
   {
     "id": "prep10",
     "question": "Preciso tomar PrEP para sempre?",
+    "questionEn": "Do I need to take PrEP forever?",
     "answerHtml": "<p>Não. O uso pode ser interrompido quando o risco de exposição diminuir. Mas lembre-se, busque sempre orientação de profissionais de saúde.</p>",
-  "audioDescription": { "src": "/assets/audio/prep10.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>No. Use can be discontinued when the risk of exposure decreases. But remember, always seek the advice of healthcare professionals.</p>",
+    "audioDescription": { "src": "/assets/audio/prep10.mp3", "durationSec": 2 },
     "tags": ["PrEP", "duração"],
     "sources": []
   },
   {
     "id": "prep11",
     "question": "Onde encontrar a PrEP?",
+    "questionEn": "Where can I find PrEP?",
     "answerHtml": "<p>A PrEP é gratuita e está disponível em unidades do SUS habilitadas em todo o país. O Ministério da Saúde disponibiliza uma ferramenta para localizar essas unidades mais rápido. Confira aqui: <a href=\"https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep\" target=\"_blank\">https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep</a></p>",
-  "audioDescription": { "src": "/assets/audio/prep11.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>PrEP is free and available at authorized SUS units throughout the country. The Ministry of Health provides a tool to locate these units more quickly. Check it out here: <a href=\"https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep\" target=\"_blank\">https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep</a></p>",
+    "audioDescription": { "src": "/assets/audio/prep11.mp3", "durationSec": 2 },
     "tags": ["PrEP", "acesso"],
     "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://dv2025.short.gy/onde-encontrar-a-prep" } ]
   },
   {
     "id": "prep12",
     "question": "O que é a PrEP sob demanda?",
+    "questionEn": "What is on-demand PrEP?",
     "answerHtml": "<p>A PrEP sob demanda é uma forma alternativa de uso da profilaxia pré-exposição ao HIV (PrEP) para pessoas que têm exposições eventuais ao vírus. Em vez de tomar o comprimido todos os dias, a pessoa usa o medicamento apenas em torno do momento da relação sexual.</p>",
-  "audioDescription": { "src": "/assets/audio/prep12.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>On-demand PrEP is an alternative way of using HIV pre-exposure prophylaxis (PrEP) for people who are occasionally exposed to the virus. Instead of taking the pill every day, the person only uses the medication around the time of sexual intercourse.</p>",
+    "audioDescription": { "src": "/assets/audio/prep12.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep13",
     "question": "Como funciona o esquema da PrEP sob demanda?",
+    "questionEn": "How does the PrEP on demand program work?",
     "answerHtml": "<p>O esquema é conhecido como \"2+1+1\" e consiste na tomada de:</p><ul><li>2 comprimidos de PrEP entre 2 e 24 horas antes da relação sexual;</li><li>1 comprimido 24 horas após a primeira dose;</li><li>1 comprimido 48 horas após a primeira dose.</li></ul><p>É importante seguir esse esquema exatamente como indicado para garantir proteção adequada.</p>",
-  "audioDescription": { "src": "/assets/audio/prep13.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>The regimen is known as \"2+1+1\" and consists of taking:</p><ul><li>2 PrEP tablets between 2 and 24 hours before sexual intercourse;</li><li>1 tablet 24 hours after the first dose;</li><li>1 tablet 24 hours after the second dose.</li></ul><p>It is important to follow this regimen exactly as indicated to ensure adequate protection.</p>",
+    "audioDescription": { "src": "/assets/audio/prep13.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep14",
     "question": "Quem pode usar a PrEP sob demanda?",
+    "questionEn": "Who can take on-demand PrEP?",
     "answerHtml": "<p>A PrEP sob demanda pode ser indicada para homens cisgênero heterossexuais, bissexuais, gays e outros HSH, pessoas não binárias designadas como do sexo masculino ao nascer, e travestis e mulheres transexuais que não estejam em uso de hormônios à base de estradiol.</p>",
-  "audioDescription": { "src": "/assets/audio/prep14.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>On-demand PrEP may be indicated for cisgender heterosexual, bisexual, and gay men and other men who have sex with men, non-binary individuals assigned male at birth, and transvestites and transgender women who are not using estradiol-based hormones.</p>",
+    "audioDescription": { "src": "/assets/audio/prep14.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep15",
     "question": "Quando devo considerar usar a PrEP sob demanda?",
+    "questionEn": "When should I consider taking on-demand PrEP?",
     "answerHtml": "<p>Essa modalidade é indicada para quem tem relações sexuais ocasionais (menos de 2 vezes na semana) e consegue planejar com antecedência quando haverá possível exposição ao HIV.</p>",
-  "audioDescription": { "src": "/assets/audio/prep15.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>This method is recommended for those who have occasional sex (less than twice a week) and are able to plan in advance when they may be exposed to HIV.</p>",
+    "audioDescription": { "src": "/assets/audio/prep15.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep16",
     "question": "A PrEP sob demanda é tão eficaz quanto a diária?",
+    "questionEn": "Is on-demand PrEP as effective as daily PrEP?",
     "answerHtml": "<p>Sim, estudos mostraram que a PrEP sob demanda é altamente eficaz quando tomada corretamente. O fator decisivo é seguir o esquema de doses com rigor.</p>",
-  "audioDescription": { "src": "/assets/audio/prep16.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Yes. Studies have shown that on-demand PrEP is highly effective when taken correctly. The key factor is to follow the dosing schedule strictly.</p>",
+    "audioDescription": { "src": "/assets/audio/prep16.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep17",
     "question": "A PrEP sob demanda protege contra outras infecções sexualmente transmissíveis (ISTs)?",
+    "questionEn": "Does on-demand PrEP protect against other sexually transmitted infections (STIs)?",
     "answerHtml": "<p>Não. Assim como a PrEP diária, a sob demanda protege apenas contra o HIV. O uso de preservativo interno ou externo continua sendo fundamental.</p>",
-  "audioDescription": { "src": "/assets/audio/prep17.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>No. Like daily PrEP, on-demand PrEP only protects against HIV. The use of internal or external condoms remains essential.</p>",
+    "audioDescription": { "src": "/assets/audio/prep17.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep18",
     "question": "Onde posso iniciar a PrEP sob demanda?",
+    "questionEn": "Where can I start on-demand PrEP?",
     "answerHtml": "<p>A decisão deve ser feita junto a um(a) profissional em uma unidade de saúde. A pessoa passa por consulta, testagem para o HIV e outras infecções sexualmente transmissíveis, e avaliação de saúde antes de iniciar o uso.</p>",
-  "audioDescription": { "src": "/assets/audio/prep18.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>The decision must be taken together with a professional at a health center. The person undergoes a consultation, testing for HIV and other sexually transmitted infections, and a health assessment before starting to use on-demand PrEP.</p>",
+    "audioDescription": { "src": "/assets/audio/prep18.mp3", "durationSec": 2 },
     "tags": ["PrEP", "sob demanda"],
     "sources": []
   },
   {
     "id": "prep19",
     "question": "Adolescentes podem usar a PrEP?",
+    "questionEn": "Can adolescents use PrEP?",
     "answerHtml": "<p>Sim. A PrEP pode ser indicada para adolescentes a partir dos 15 anos de idade que pesem pelo menos 35 kg e tenham vida sexual ativa.</p>",
-  "audioDescription": { "src": "/assets/audio/prep19.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Yes. PrEP may be recommended for adolescents aged 15 and older who weigh at least 35 kg and are sexually active.</p>",
+    "audioDescription": { "src": "/assets/audio/prep19.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
   },
   {
     "id": "prep20",
     "question": "É necessário consentimento dos responsáveis?",
+    "questionEn": "Is consent from guardians required?",
     "answerHtml": "<p>Não é necessário o consentimento dos pais e/ou responsáveis, desde que a pessoa tenha compreensão da profilaxia e seu acompanhamento.</p><p>Os(as) profissionais dos serviços de saúde devem acolher os adolescentes, respeitando os seus direitos, a confidencialidade e o sigilo, conforme as normas do SUS.</p>",
-  "audioDescription": { "src": "/assets/audio/prep20.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>The consent of parents and/or guardians is not required, provided that the person understands the prophylaxis and its follow-up.</p><p>Health service professionals must welcome adolescents, respecting their rights, confidentiality, and privacy, in accordance with SUS (Brazilian Unified Health System) regulations.</p>",
+    "audioDescription": { "src": "/assets/audio/prep20.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
   },
   {
     "id": "prep21",
     "question": "A PrEP é segura para adolescentes?",
+    "questionEn": "Is PrEP safe for adolescents?",
     "answerHtml": "<p>Sim, desde que usada com acompanhamento clínico regular e adesão correta ao medicamento.</p>",
-  "audioDescription": { "src": "/assets/audio/prep21.mp3", "durationSec": 2 },
+    "answerHtmlEn": "<p>Yes, as long as it is used with regular clinical monitoring and correct adherence to the medication.</p>",
+    "audioDescription": { "src": "/assets/audio/prep21.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
   },
   {
     "id": "prep22",
     "question": "Como é o acompanhamento de adolescentes que usam PrEP?",
+    "questionEn": "How are adolescents who use PrEP monitored?",
     "answerHtml": "<p>O acompanhamento é feito a cada quatro meses, com testagem para HIV e outras infecções sexualmente transmissíveis, avaliação da função renal e aconselhamento em saúde sexual e reprodutiva.</p>",
+    "answerHtmlEn": "<p>Monitoring is carried out every four months, with testing for HIV and other sexually transmitted infections, assessment of kidney function, and counseling on sexual and reproductive health.</p>",
     "audioDescription": { "src": "/assets/audio/prep22.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
@@ -178,7 +222,9 @@
   {
     "id": "prep23",
     "question": "Por que a PrEP é importante para adolescentes?",
+    "questionEn": "Why is PrEP important for adolescents?",
     "answerHtml": "<p>A PrEP oferece uma nova possibilidade de prevenção combinada, fortalecendo a autonomia e o cuidado com a saúde sexual. É também uma oportunidade de diálogo sobre autocuidado, sexualidade e direitos.</p>",
+    "answerHtmlEn": "<p>PrEP offers a new possibility for combination prevention, strengthening autonomy and sexual health care. It is also an opportunity for dialogue about self-care, sexuality, and rights.</p>",
     "audioDescription": { "src": "/assets/audio/prep23.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
@@ -186,7 +232,9 @@
   {
     "id": "prep24",
     "question": "Adolescentes que usam PrEP precisam continuar usando camisinha?",
+    "questionEn": "Do adolescents who use PrEP still need to use condoms?",
     "answerHtml": "<p>Sim. A PrEP protege apenas contra o HIV. O uso combinado da PrEP com o preservativo oferece proteção contra outras infecções sexualmente transmissíveis e gravidez indesejada.</p>",
+    "answerHtmlEn": "<p>Yes. PrEP only protects against HIV. Using PrEP along with condoms offers protection against other sexually transmitted infections and unintended pregnancy.</p>",
     "audioDescription": { "src": "/assets/audio/prep24.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": []
@@ -194,7 +242,9 @@
   {
     "id": "prep25",
     "question": "Onde adolescentes podem ter acesso à PrEP?",
+    "questionEn": "Where can adolescents access PrEP?",
     "answerHtml": "<p>A PrEP é gratuita e está disponível em serviços do SUS em todo o país. Jovens podem procurar unidades básicas de saúde, centros de testagem e aconselhamento (CTA) ou serviços especializados em ISTs/HIV/aids. Confira aqui: <a href=\"https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep\" target=\"_blank\">https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep</a></p>",
+    "answerHtmlEn": "<p>PrEP is free and available at SUS services throughout the country. Young people can visit basic health units, testing and counseling centers (CTA), or services specializing in STIs/HIV/AIDS. Find out here: <a href=\"https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep\" target=\"_blank\">https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep</a></p>",
     "audioDescription": { "src": "/assets/audio/prep25.mp3", "durationSec": 2 },
     "tags": ["PrEP", "adolescentes"],
     "sources": [ { "label": "Onde encontrar a PrEP", "url": "https://www.gov.br/aids/pt-br/assuntos/prevencao-combinada/prep-profilaxia-pre-exposicao/onde-encontrar-a-prep" } ]
@@ -202,7 +252,9 @@
   {
     "id": "prep26",
     "question": "Como saber se a PrEP é indicada para mim?",
+    "questionEn": "How can I tell if PrEP is right for me?",
     "answerHtml": "<p>Procure um serviço de saúde e converse com um(a) profissional. O diálogo aberto e sem julgamentos é o primeiro passo para avaliar a melhor forma de prevenção para cada pessoa.</p>",
+    "answerHtmlEn": "<p>Visit a healthcare service and talk to a professional. Open, non-judgmental dialogue is the first step in assessing the best form of prevention for each person.</p>",
     "audioDescription": { "src": "/assets/audio/prep26.mp3", "durationSec": 2 },
     "tags": ["PrEP"],
     "sources": []
@@ -210,7 +262,9 @@
   {
     "id": "pep1",
     "question": "O que é a PEP?",
+    "questionEn": "What is PEP?",
     "answerHtml": "<p>A PEP (profilaxia pós-exposição) é uma medida de prevenção de urgência ao HIV, hepatites virais e outras infecções sexualmente transmissíveis. Consiste no uso de medicamentos antirretrovirais para reduzir o risco de infecção após uma situação de exposição ao vírus.</p>",
+    "answerHtmlEn": "<p>PEP (post-exposure prophylaxis) is an emergency preventive measure against HIV, viral hepatitis, and other sexually transmitted infections. It consists of using antiretroviral drugs to reduce the risk of infection after exposure to the virus.</p>",
     "audioDescription": { "src": "/assets/audio/pep1.mp3", "durationSec": 2 },
     "tags": ["PEP", "definição"],
     "sources": []
@@ -218,7 +272,9 @@
   {
     "id": "pep2",
     "question": "Quando a PEP deve ser utilizada?",
+    "questionEn": "When should PEP be used?",
     "answerHtml": "<p>A PEP deve ser procurada imediatamente após qualquer situação de risco, como:</p><ul><li>relação sexual desprotegida (sem camisinha, com rompimento ou escape);</li><li>violência sexual;</li><li>acidente com materiais biológicos.</li></ul>",
+    "answerHtmlEn": "<p>PEP should be sought immediately after any risky situation, such as:</p><ul><li>unprotected sexual intercourse (without a condom, with breakage or leakage);</li><li>sexual violence;</li><li>occupational accident with sharp instruments or direct contact with blood and other biological materials.</li></ul>",
     "audioDescription": { "src": "/assets/audio/pep2.mp3", "durationSec": 2 },
     "tags": ["PEP", "indicações"],
     "sources": []
@@ -226,7 +282,9 @@
   {
     "id": "pep3",
     "question": "Em quanto tempo devo iniciar a PEP?",
+    "questionEn": "How soon should I start PEP?",
     "answerHtml": "<p>O tratamento deve começar o mais rápido possível, preferencialmente nas duas primeiras horas após a exposição e, no máximo, em até 72 horas. Quanto antes a PEP for iniciada, maior a eficácia da proteção.</p>",
+    "answerHtmlEn": "<p>Treatment should begin as soon as possible, preferably within the first two hours after exposure and no later than 72 hours. The sooner PEP is started, the higher the protection.</p>",
     "audioDescription": { "src": "/assets/audio/pep3.mp3", "durationSec": 2 },
     "tags": ["PEP", "tempo"],
     "sources": []
@@ -234,7 +292,9 @@
   {
     "id": "pep4",
     "question": "Como a PEP funciona?",
+    "questionEn": "How does PEP work?",
     "answerHtml": "<p>Os medicamentos antirretrovirais atuam impedindo que o HIV se estabeleça e se multiplique no organismo, evitando que a infecção se consolide.</p>",
+    "answerHtmlEn": "<p>Antiretroviral drugs work by preventing HIV from establishing itself and multiplying in the body, thereby preventing the infection from taking hold.</p>",
     "audioDescription": { "src": "/assets/audio/pep4.mp3", "durationSec": 2 },
     "tags": ["PEP", "funcionamento"],
     "sources": []
