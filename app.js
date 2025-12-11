@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '11/12/2025, 11:11';
+  const APP_VERSION = '11/12/2025, 12:00';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
@@ -256,15 +256,27 @@
           audioDescription.duration ??
           null;
 
+        // Include English translations if available
+        const questionEn = item.questionEn || '';
+        const answerHtmlEn = item.answerHtmlEn || '';
+        const answerTextEn = answerHtmlEn ? stripHtml(answerHtmlEn) : '';
+
+        // Build searchText with both Portuguese and English content
+        const searchParts = [question, answerText, ...tags];
+        if (questionEn) searchParts.push(questionEn);
+        if (answerTextEn) searchParts.push(answerTextEn);
+
         return {
           id: item.id || item.slug || question,
           question,
+          questionEn,
           answerHtml: baseHtml || `<p>${answerText}</p>`,
+          answerHtmlEn,
           answerText,
           tags,
           audioSrc,
           audioDurationLabel: formatDuration(durationSec),
-          searchText: `${question} ${answerText} ${tags.join(" ")}`.toLowerCase(),
+          searchText: searchParts.join(' ').toLowerCase(),
         };
       })
       .filter(Boolean);
@@ -713,10 +725,10 @@
     }, [term, list.length]);
 
     const handleAudioToggle = useCallback(
-      (faq) => {
+      (faq, questionText) => {
         const wasPlaying = playingId === faq.id;
         if (!wasPlaying) {
-          AnalyticsTracker.trackAudioPlay('faq', faq.question);
+          AnalyticsTracker.trackAudioPlay('faq', questionText || faq.question);
         }
         toggleAudio(faq.id, faq.audioSrc);
       },
@@ -769,6 +781,10 @@
           ? t(language, 'faq.audioBtnPause')
           : t(language, 'faq.audioBtnPlay');
 
+        // Select language-appropriate content
+        const displayQuestion = language === 'en' && faq.questionEn ? faq.questionEn : faq.question;
+        const displayAnswer = language === 'en' && faq.answerHtmlEn ? faq.answerHtmlEn : faq.answerHtml;
+
         return h(
           "details",
           {
@@ -776,7 +792,7 @@
             className: "faq-item",
             onToggle: (event) => {
               if (event.target.open) {
-                AnalyticsTracker.trackFaqView(faq.id, faq.question);
+                AnalyticsTracker.trackFaqView(faq.id, displayQuestion);
               }
             }
           },
@@ -786,7 +802,7 @@
             h(
               "span",
               { className: "faq-question-text" },
-              faq.question || ""
+              displayQuestion || ""
             ),
             showAudioButtons && faq.audioSrc
               ? h(
@@ -802,7 +818,7 @@
                       if (detailsElement && !isPlaying) {
                         detailsElement.open = true;
                       }
-                      handleAudioToggle(faq);
+                      handleAudioToggle(faq, displayQuestion);
                     },
                     "aria-pressed": isPlaying ? "true" : "false",
                     "aria-label": audioLabel,
@@ -813,7 +829,7 @@
           ),
           h("div", {
             className: "faq-answer muted",
-            dangerouslySetInnerHTML: { __html: faq.answerHtml },
+            dangerouslySetInnerHTML: { __html: displayAnswer },
           })
         );
       });
@@ -924,10 +940,10 @@
     }, [term, list.length]);
 
     const handleAudioToggle = useCallback(
-      (faq) => {
+      (faq, questionText) => {
         const wasPlaying = playingId === faq.id;
         if (!wasPlaying) {
-          AnalyticsTracker.trackAudioPlay('bot', faq.question);
+          AnalyticsTracker.trackAudioPlay('bot', questionText || faq.question);
         }
         toggleAudio(faq.id, faq.audioSrc);
       },
@@ -938,6 +954,9 @@
       teardownAudio();
       onBack();
     }, [teardownAudio, onBack]);
+
+    // Hide audio buttons when English selected (audio files not ready)
+    const showAudioButtons = language === 'pt-br';
 
     const hasQuery = term.trim().length > 0;
     const hasResults = list.length > 0;
@@ -1033,6 +1052,11 @@
             const audioLabel = isPlaying
               ? "Pausar audiodescrição"
               : "Ouvir audiodescrição";
+
+            // Select language-appropriate content
+            const displayQuestion = language === 'en' && faq.questionEn ? faq.questionEn : faq.question;
+            const displayAnswer = language === 'en' && faq.answerHtmlEn ? faq.answerHtmlEn : faq.answerHtml;
+
             return h(
               "article",
               { key: faq.id || faq.question, className: "bot-result" },
@@ -1042,15 +1066,15 @@
                 h(
                   "h3",
                   { className: "bot-result-title" },
-                  faq.question || ""
+                  displayQuestion || ""
                 ),
-                faq.audioSrc
+                showAudioButtons && faq.audioSrc
                   ? h(
                       "button",
                       {
                         type: "button",
                         className: "audio-btn",
-                        onClick: () => handleAudioToggle(faq),
+                        onClick: () => handleAudioToggle(faq, displayQuestion),
                         "aria-pressed": isPlaying ? "true" : "false",
                         "aria-label": audioLabel,
                       },
@@ -1079,7 +1103,7 @@
                 : null,
               h("div", {
                 className: "bot-result-body muted",
-                dangerouslySetInnerHTML: { __html: faq.answerHtml },
+                dangerouslySetInnerHTML: { __html: displayAnswer },
               })
             );
           })

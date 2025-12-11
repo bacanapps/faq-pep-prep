@@ -302,7 +302,9 @@
   {
     "id": "pep5",
     "question": "Por quanto tempo devo tomar a PEP?",
+    "questionEn": "How long should I take PEP?",
     "answerHtml": "<p>A PEP deve ser tomada por 28 dias consecutivos, sem interrupções, sempre com acompanhamento e orientação de um(a) profissional de saúde.</p>",
+    "answerHtmlEn": "<p>PEP should be taken for 28 consecutive days, without interruption, always under the supervision and guidance of a healthcare professional.</p>",
     "audioDescription": { "src": "/assets/audio/pep5.mp3", "durationSec": 2 },
     "tags": ["PEP", "duração"],
     "sources": []
@@ -310,7 +312,9 @@
   {
     "id": "pep6",
     "question": "O que é a avaliação de risco?",
+    "questionEn": "What is risk assessment?",
     "answerHtml": "<p>É o momento em que o(a) profissional de saúde conversa com a pessoa atendida para entender o tipo de exposição, as suas práticas sexuais e os fatores de vulnerabilidade, a fim de apresentar a prevenção combinada e ofertar as opções mais adequadas para cada pessoa.</p>",
+    "answerHtmlEn": "<p>It is when the healthcare professional talks to the person to understand the type of exposure, their sexual practices, and vulnerability factors in order to introduce combination prevention and offer the most appropriate options for each person.</p>",
     "audioDescription": { "src": "/assets/audio/pep6.mp3", "durationSec": 2 },
     "tags": ["PEP", "avaliação"],
     "sources": []
@@ -318,7 +322,9 @@
   {
     "id": "pep7",
     "question": "Preciso saber se meu parceiro ou parceira tem HIV para usar a PEP?",
+    "questionEn": "Do I need to know if my partner has HIV to use PEP?",
     "answerHtml": "<p>Não. A PEP é indicada sempre que houver exposição de risco, independentemente de se saber o status sorológico da outra pessoa.</p>",
+    "answerHtmlEn": "<p>No. PEP is recommended whenever there has been exposure to risk, regardless of whether you know the other person's HIV status.</p>",
     "audioDescription": { "src": "/assets/audio/pep7.mp3", "durationSec": 2 },
     "tags": ["PEP", "indicações"],
     "sources": []
@@ -326,7 +332,9 @@
   {
     "id": "pep8",
     "question": "A PEP tem efeitos adversos?",
+    "questionEn": "Does PEP have adverse effects?",
     "answerHtml": "<p>Algumas pessoas podem apresentar efeitos leves e temporários, como náusea ou fadiga. Em geral, esses efeitos desaparecem rapidamente. Em caso de desconforto, procure o serviço de saúde que indicou a profilaxia antes de interromper o uso dos medicamentos.</p>",
+    "answerHtmlEn": "<p>Some people may experience mild and temporary effects, such as nausea or fatigue. In general, these effects disappear quickly. If you experience discomfort, consult the health service that prescribed the prophylaxis before discontinuing use of the medication.</p>",
     "audioDescription": { "src": "/assets/audio/pep8.mp3", "durationSec": 2 },
     "tags": ["PEP", "segurança"],
     "sources": []
@@ -334,7 +342,9 @@
   {
     "id": "pep9",
     "question": "Posso deixar de usar camisinha durante a PEP?",
+    "questionEn": "Can I stop using condoms during PEP?",
     "answerHtml": "<p>Não. O uso do preservativo continua sendo essencial durante e após o tratamento, pois a PEP não protege contra outras ISTs. Além disso, durante o uso da PEP é necessário evitar novas exposições.</p>",
+    "answerHtmlEn": "<p>No. Condom use remains essential during and after treatment, as PEP does not protect against other STIs. In addition, during PEP use, it is necessary to avoid new exposures.</p>",
     "audioDescription": { "src": "/assets/audio/pep9.mp3", "durationSec": 2 },
     "tags": ["PEP", "preservativo"],
     "sources": []
@@ -342,7 +352,9 @@
   {
     "id": "pep10",
     "question": "Onde posso encontrar a PEP?",
+    "questionEn": "Where can I find PEP?",
     "answerHtml": "<p>A PEP está disponível gratuitamente no SUS. O atendimento é oferecido em:</p><ul><li>Serviços de urgência e emergência;</li><li>Centros de testagem e aconselhamento (CTA);</li><li>Serviços especializados em ISTs/HIV.</li></ul><p>Procure o serviço de saúde mais próximo imediatamente após a exposição.</p><p>Painel Onde Encontrar a PEP - <a href=\"https://dv2025.short.gy/onde-encontrar-pep\" target=\"_blank\">https://dv2025.short.gy/onde-encontrar-pep</a></p>",
+    "answerHtmlEn": "<p>PEP is available free of charge through the Brazilian Unified Health System (SUS). Treatment is offered at:</p><ul><li>Urgency and emergency services;</li><li>Testing and counseling centers (CTA);</li><li>Specialized STI/HIV services.</li></ul><p>Seek the nearest health service immediately after exposure.</p><p>Where to find PEP - <a href=\"https://dv2025.short.gy/onde-encontrar-pep\" target=\"_blank\">https://dv2025.short.gy/onde-encontrar-pep</a></p>",
     "audioDescription": { "src": "/assets/audio/pep10.mp3", "durationSec": 2 },
     "tags": ["PEP", "acesso"],
     "sources": [ { "label": "Painel Onde Encontrar a PEP", "url": " https://dv2025.short.gy/onde-encontrar-pep" } ]
