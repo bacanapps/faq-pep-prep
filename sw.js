@@ -1,4 +1,4 @@
-const VERSION = "v202512102020"; const CACHE_NAME = `prep-pep-pwa-cache-${VERSION}`;
+const VERSION = "v202512111000"; const CACHE_NAME = `prep-pep-pwa-cache-${VERSION}`;
 
 /**
  * Only precache same-origin assets. Do NOT precache external CDNs to avoid CORS issues.

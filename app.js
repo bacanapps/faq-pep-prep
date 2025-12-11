@@ -5,7 +5,7 @@
 
   // ---- APP VERSION --------------------------------------------
   // Update this manually when deploying to reflect last GitHub update
-  const APP_VERSION = '10/12/2025, 20:20';
+  const APP_VERSION = '11/12/2025, 10:00';
   const getAppVersion = () => {
     return `(v. ${APP_VERSION})`;
   };
@@ -587,8 +587,7 @@
         {
           className: "language-toggle-btn",
           onClick: toggleLanguage,
-          "aria-label": t(language, 'common.languageToggleAria'),
-          style: { position: 'fixed', top: '1.5rem', right: '5rem' }
+          "aria-label": t(language, 'common.languageToggleAria')
         },
         language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
       ),
@@ -875,8 +874,7 @@
         {
           className: "language-toggle-btn",
           onClick: toggleLanguage,
-          "aria-label": t(language, 'common.languageToggleAria'),
-          style: { position: 'fixed', top: '1.5rem', right: '5rem' }
+          "aria-label": t(language, 'common.languageToggleAria')
         },
         language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
       ),
@@ -1362,8 +1360,7 @@
           {
             className: "language-toggle-btn",
             onClick: toggleLanguage,
-            "aria-label": t(language, 'common.languageToggleAria'),
-            style: { position: 'absolute', top: '16px', right: '60px' }
+            "aria-label": t(language, 'common.languageToggleAria')
           },
           language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
         )
@@ -1413,8 +1410,7 @@
           {
             className: "language-toggle-btn",
             onClick: toggleLanguage,
-            "aria-label": t(language, 'common.languageToggleAria'),
-            style: { position: 'absolute', top: '16px', right: '60px' }
+            "aria-label": t(language, 'common.languageToggleAria')
           },
           language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
         )
@@ -1478,8 +1474,7 @@
         {
           className: "language-toggle-btn",
           onClick: toggleLanguage,
-          "aria-label": t(language, 'common.languageToggleAria'),
-          style: { position: 'absolute', top: '16px', right: '60px' }
+          "aria-label": t(language, 'common.languageToggleAria')
         },
         language === 'en' ? '🇧🇷 PT' : '🇬🇧 EN'
       )
